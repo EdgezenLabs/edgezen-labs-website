@@ -35,10 +35,10 @@ This project is configured for automatic deployment to GitHub Pages using GitHub
        - 185.199.111.153
      - Or add a `CNAME` record pointing to `[your-username].github.io`
 
-3. **Update Base Path**
-   - If using GitHub Pages without custom domain, update `vite.config.ts`:
-     - Change `base: "/edgezenlabs.com/"` to match your repository name
-   - If using custom domain, set `base: "/"`
+3. **Base Path Configuration**
+   - For custom domain: `base: "/"` (already configured)
+   - For GitHub Pages default URL: `base: "/repository-name/"`
+   - Current setup uses custom domain (edgezenlabs.com) with base path `/`
 
 #### Automatic Deployment
 

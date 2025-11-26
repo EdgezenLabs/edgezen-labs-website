@@ -5,9 +5,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import edgezenLogo from "@/assets/edgezen-logo.jpg";
-import credosafeLogo from "@/assets/credosafe-logo.jpg";
-import briktraLogo from "@/assets/briktra-logo.png";
+import credosafeLogo from "@/assets/credo_logo.jpg";
+import briktraLogo from "@/assets/bricktra.jpg";
 import expeniqoLogo from "@/assets/expeniqo-logo.png";
+import cardClashLogo from "@/assets/cardclash.png";
 
 const Index = () => {
   const products = [
@@ -32,7 +33,7 @@ const Index = () => {
     {
       name: "Card Clash Legends Arena",
       description: "Competitive PvP collectible card battle game built in Unity. AAA fantasy UI with strategic gameplay and multiplayer modes.",
-      logo: edgezenLogo,
+      logo: cardClashLogo,
       color: "gradient-text",
     },
   ];

@@ -1,8 +1,8 @@
 import { Shield, HardHat, TrendingUp, Swords, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import credosafeLogo from "@/assets/credosafe-logo.jpg";
-import briktraLogo from "@/assets/briktra-logo.png";
+import credosafeLogo from "@/assets/credo_logo.jpg";
+import briktraLogo from "@/assets/bricktra.jpg";
 import expeniqoLogo from "@/assets/expeniqo-logo.png";
 
 const Products = () => {

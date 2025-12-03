@@ -17,29 +17,29 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/edgezen-labs"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-accent transition-colors"
               >
                 <Linkedin size={20} />
               </a>
-              <a
+              {/* <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-accent transition-colors"
               >
                 <Twitter size={20} />
-              </a>
-              <a
+              </a> */}
+              {/* <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-accent transition-colors"
               >
                 <Github size={20} />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -83,14 +83,14 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Mail size={16} className="text-accent" />
-                <a href="mailto:contact@edgezenlabs.com" className="hover:text-accent transition-colors">
-                  contact@edgezenlabs.com
+                <a href="mailto:edgezenlabs@gmail.com" className="hover:text-accent transition-colors">
+                  edgezenlabs@gmail.com
                 </a>
               </li>
               <li className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Phone size={16} className="text-accent" />
                 <a href="tel:+1234567890" className="hover:text-accent transition-colors">
-                  +1 (234) 567-890
+                  9176738389 | 8680890318
                 </a>
               </li>
             </ul>

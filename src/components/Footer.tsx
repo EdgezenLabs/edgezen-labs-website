@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, Linkedin, Twitter, Github } from "lucide-react";
-import edgezenLogo from "@/assets/edgezen-logo.jpg";
+import edgezenLogo from "@/assets/ez.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import edgezenLogo from "@/assets/edgezen-logo.jpg";
+import edgezenLogo from "@/assets/ez.png";
 import credosafeLogo from "@/assets/credo_logo.jpg";
 import briktraLogo from "@/assets/bricktra.jpg";
 import expeniqoLogo from "@/assets/expeniqo-logo.png";

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import edgezenLogo from "@/assets/edgezen-logo.jpg";
+import edgezenLogo from "@/assets/ez.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

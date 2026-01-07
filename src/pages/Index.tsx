@@ -55,11 +55,11 @@ const Index = () => {
               <span className="text-sm text-muted-foreground">Engineering Digital Excellence</span>
             </div>
 
-            <img
+            {/* <img
               src={edgezenLogo}
               alt="EdgeZen Labs"
               className="h-24 md:h-32 w-auto mx-auto mb-8 animate-glow"
-            />
+            /> */}
 
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
               We Build{" "}

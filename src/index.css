@@ -60,6 +60,14 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 0% 91%;
     --sidebar-ring: 280 70% 60%;
+
+    /* Briktra Specific */
+    --briktra-primary: 16 77% 55%;
+    --briktra-primary-dark: 16 90% 40%;
+    --briktra-accent: 0 0% 10%;
+    --briktra-secondary: 0 0% 98%;
+    --briktra-warm: 30 20% 97%; /* Warm Alabaster */
+    --briktra-navy: 222 47% 7%; /* Industrial Navy Charcoal */
   }
 
   .dark {
@@ -126,6 +134,20 @@ All colors MUST be HSL.
     @apply bg-gradient-to-r from-[hsl(var(--gradient-purple))] via-[hsl(var(--gradient-pink))] to-[hsl(var(--gradient-blue))] bg-clip-text text-transparent;
   }
 
+  .briktra-gradient-text {
+    @apply bg-gradient-to-r from-[hsl(var(--briktra-primary))] to-[hsl(var(--briktra-primary-dark))] bg-clip-text text-transparent;
+    display: inline-block;
+    transform: skewX(-15deg);
+    padding-right: 0.5em;
+    margin-right: -0.2em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .briktra-gradient-bg {
+    @apply bg-gradient-to-br from-[hsl(var(--briktra-primary))] to-[hsl(var(--briktra-primary-dark))];
+  }
+
   .gradient-border {
     position: relative;
   }
@@ -150,6 +172,31 @@ All colors MUST be HSL.
     border: 1px solid hsl(var(--glass-border));
   }
 
+  .briktra-glass {
+    background: hsla(0, 0%, 100%, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(16, 77, 55, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(16, 77, 55, 0.05);
+  }
+
+  .dark .briktra-glass {
+    background: hsla(0, 0%, 5%, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .grid-pattern {
+    background-image: 
+      radial-gradient(circle at 2px 2px, hsl(var(--briktra-primary) / 0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  .mesh-grid {
+    background-image: 
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -169,10 +216,23 @@ All colors MUST be HSL.
 
   @keyframes glow {
     from {
-      box-shadow: 0 0 20px hsl(var(--gradient-purple) / 0.3);
+      box-shadow: 0 0 20px hsl(var(--briktra-primary) / 0.3);
     }
     to {
-      box-shadow: 0 0 40px hsl(var(--gradient-pink) / 0.5);
+      box-shadow: 0 0 40px hsl(var(--briktra-primary) / 0.5);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 4s ease-in-out infinite;
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
     }
   }
 }

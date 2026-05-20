@@ -67,13 +67,23 @@ const Footer = () => {
               {["CredoSafe", "Briktra", "Expeniqo", "Card Clash Legends"].map((product) => (
                 <li key={product}>
                   <Link
-                    to="/products"
+                    to={product === "Briktra" ? "/briktra-app" : "/products"}
                     className="text-sm text-muted-foreground hover:text-accent transition-colors"
                   >
                     {product}
                   </Link>
                 </li>
               ))}
+              <li>
+                <a 
+                  href="https://briktra.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm text-accent hover:underline font-medium"
+                >
+                  Visit briktra.com
+                </a>
+              </li>
             </ul>
           </div>
 

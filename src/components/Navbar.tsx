@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Products", path: "/products" },
+    { name: "Briktra App", path: "/briktra-app" },
     { name: "Technologies", path: "/technologies" },
     { name: "Contact", path: "/contact" },
   ];

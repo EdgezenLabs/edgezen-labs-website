@@ -1,6 +1,8 @@
-import { Shield, HardHat, TrendingUp, Swords, Check } from "lucide-react";
+import { Shield, HardHat, TrendingUp, Swords, Check, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 import credosafeLogo from "@/assets/credo_logo.jpg";
 import briktraLogo from "@/assets/bricktra.jpg";
 import expeniqoLogo from "@/assets/expeniqo-logo.png";
@@ -95,6 +97,13 @@ const Products = () => {
                       <span className="text-muted-foreground">{feature}</span>
                     </div>
                   ))}
+                </div>
+                <div className="pt-4">
+                  <Link to="/briktra-app">
+                    <Button className="bg-orange hover:bg-orange/90 text-white rounded-lg">
+                      Learn More <ChevronRight size={16} className="ml-1" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <div className="order-1 md:order-2">

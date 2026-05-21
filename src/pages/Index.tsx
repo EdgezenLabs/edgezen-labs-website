@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import edgezenLogo from "@/assets/ez.png";
-import credosafeLogo from "@/assets/credo_logo.jpg";
-import briktraLogo from "@/assets/bricktra.jpg";
-import expeniqoLogo from "@/assets/expeniqo-logo.png";
-import cardClashLogo from "@/assets/cardclash.png";
+const edgezenLogo = "/ez.png";
+const credosafeLogo = "/credo_logo.jpg";
+const briktraLogo = "/bricktra.jpg";
+const expeniqoLogo = "/expeniqo-logo.png";
+const cardClashLogo = "/cardclash.png";
 
 const Index = () => {
   const products = [

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import credosafeLogo from "@/assets/credo_logo.jpg";
-import briktraLogo from "@/assets/bricktra.jpg";
-import expeniqoLogo from "@/assets/expeniqo-logo.png";
+const credosafeLogo = "/credo_logo.jpg";
+const briktraLogo = "/bricktra.jpg";
+const expeniqoLogo = "/expeniqo-logo.png";
 
 const Products = () => {
   return (

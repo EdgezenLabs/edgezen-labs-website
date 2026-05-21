@@ -27,9 +27,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import briktraLogo from "@/assets/bricktra.jpg";
-import appMockup from "@/assets/briktra_app_mockup.png";
-import holographicIntel from "@/assets/holographic_intel.png";
+const briktraLogo = "/bricktra.jpg";
+const appMockup = "/briktra_app_mockup.png";
+const holographicIntel = "/holographic_intel.png";
 
 const platformFeatures = [
   {

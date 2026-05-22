@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 const credosafeLogo = "/credo_logo.jpg";
 const briktraLogo = "/bricktra.jpg";
 const expeniqoLogo = "/expeniqo-logo.png";
+const cardclashLogo = "/cardclash.png";
 
 const Products = () => {
   return (
@@ -154,53 +155,99 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Card Clash Legends */}
+      {/* ClashCard Legends Arena */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center space-y-6 mb-12">
-              <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2">
-                <Swords size={16} className="text-accent" />
-                <span className="text-sm text-accent font-medium">Mobile Game</span>
-              </div>
-              <h2 className="text-4xl font-bold gradient-text">Card Clash Legends Arena</h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                A competitive PvP collectible card battle game built in Unity with C#. Immersive AAA fantasy UI, strategic gameplay, and intense multiplayer battles.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  title: "Multiplayer Modes",
-                  description: "1v1 Ranked, Tournament, and Casual battles with real-time matchmaking",
-                },
-                {
-                  title: "Collectible Cards",
-                  description: "100+ unique cards with different rarities, abilities, and strategic combinations",
-                },
-                {
-                  title: "Battle Arenas",
-                  description: "Dynamic arenas with environmental effects that influence gameplay",
-                },
-                {
-                  title: "Progression System",
-                  description: "Level up cards, unlock new abilities, and climb the global leaderboard",
-                },
-                {
-                  title: "AAA Fantasy UI",
-                  description: "Stunning visual effects, animations, and polished user interface",
-                },
-                {
-                  title: "Cross-platform",
-                  description: "Seamless gameplay across iOS and Android with cloud save",
-                },
-              ].map((feature) => (
-                <div key={feature.title} className="glass rounded-xl p-6">
-                  <h3 className="text-xl font-semibold mb-3 gradient-text">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6 order-2 md:order-1">
+                <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2">
+                  <Swords size={16} className="text-accent" />
+                  <span className="text-sm text-accent font-medium">Strategy Card Battle Game</span>
                 </div>
-              ))}
+                <h2 className="text-4xl font-bold gradient-text">ClashCard Legends Arena</h2>
+                <div className="text-accent font-semibold italic text-lg opacity-80">
+                  Strategy. Cards. Legends. Battle Beyond Limits.
+                </div>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  ClashCard Legends Arena is a competitive mobile fantasy card-battle game where players build powerful decks, collect unique legendary cards, and compete in strategic arena battles. Designed with an immersive fantasy experience and simple gameplay flow, the game combines deck-building mechanics, tactical decision-making, and engaging progression systems.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    "Custom Deck Building System",
+                    "Fantasy-Themed Strategic Card Battles",
+                    "Legendary & Rare Card Collection",
+                    "Secure Account System with Authentication",
+                    "Progression & Player Growth System",
+                    "Competitive Arena Gameplay",
+                    "Mobile-Optimized User Experience",
+                    "Expandable Multiplayer Architecture",
+                  ].map((feature) => (
+                    <div key={feature} className="flex items-center space-x-3">
+                      <Check className="text-accent shrink-0" size={20} />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-muted-foreground italic">
+                  Players can create personalized decks, unlock powerful characters, and challenge opponents through exciting arena gameplay. The game focuses on delivering a smooth mobile experience with intuitive design and scalable systems for future competitive and social features.
+                </p>
+              </div>
+              <div className="order-1 md:order-2">
+                <img src={cardclashLogo} alt="ClashCard Legends Arena" className="w-full max-w-md mx-auto" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Maintzen */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="flex justify-center">
+                <div className="w-full max-w-md aspect-square bg-muted rounded-2xl flex items-center justify-center border-2 border-dashed border-muted-foreground/20">
+                  <span className="text-muted-foreground italic">Maintzen Logo Placeholder</span>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2">
+                  <Shield size={16} className="text-blue-500" />
+                  <span className="text-sm text-blue-500 font-medium">Field Service Management</span>
+                </div>
+                <h2 className="text-4xl font-bold text-blue-600">Maintzen</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Maintzen is a specialized field service management platform designed for RO water purifier service companies. Streamline your entire service lifecycle from agreement signing to technician dispatch.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <h3 className="font-semibold text-foreground flex items-center gap-2">
+                      <Check className="text-blue-500" size={18} /> Admin Dashboard
+                    </h3>
+                    <ul className="text-sm text-muted-foreground space-y-1 pl-7">
+                      <li>• Manage Customer Agreements</li>
+                      <li>• Automated Service Scheduling</li>
+                      <li>• Technician Job Assignment</li>
+                      <li>• Comprehensive Field Reports</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="font-semibold text-foreground flex items-center gap-2">
+                      <Check className="text-blue-500" size={18} /> Tech Mobile App
+                    </h3>
+                    <ul className="text-sm text-muted-foreground space-y-1 pl-7">
+                      <li>• Real-time Job Notifications</li>
+                      <li>• Built-in Customer Navigation</li>
+                      <li>• Instant Service Reporting</li>
+                      <li>• Digital Signature Capture</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className="text-muted-foreground italic">
+                  Designed to help RO service businesses scale by automating periodic maintenance tracking and optimizing field worker efficiency.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -31,10 +31,16 @@ const Index = () => {
       color: "text-gold",
     },
     {
-      name: "Card Clash Legends Arena",
-      description: "Competitive PvP collectible card battle game built in Unity. AAA fantasy UI with strategic gameplay and multiplayer modes.",
+      name: "ClashCard Legends Arena",
+      description: "A fantasy mobile card battle experience where players build decks, unlock legendary cards, and compete through strategy-driven arena gameplay.",
       logo: cardClashLogo,
       color: "gradient-text",
+    },
+    {
+      name: "Maintzen",
+      description: "Specialized field service management for RO water purifier companies. Manage agreements, schedules, and technicians with real-time field reporting.",
+      logo: "", // Placeholder for Maintzen
+      color: "text-blue-500",
     },
   ];
 

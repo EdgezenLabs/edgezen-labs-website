@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const edgezenLogo = "/ez.png";
 
@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Products", path: "/products" },
+    { name: "Websites", path: "/websites" },
     { name: "Briktra App", path: "/briktra-app" },
     { name: "Technologies", path: "/technologies" },
     { name: "Contact", path: "/contact" },
@@ -30,7 +31,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass border-b border-border" : "bg-transparent"
+        scrolled ? "border-b border-border/70 bg-background/85 shadow-sm backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,15 +45,15 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden items-center rounded-full border border-border/70 bg-card/75 p-1 shadow-sm backdrop-blur md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-all ${
                   location.pathname === link.path
-                    ? "bg-accent text-accent-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    ? "bg-foreground text-background shadow-md"
+                    : "text-muted-foreground hover:bg-secondary hover:text-foreground"
                 }`}
               >
                 {link.name}
@@ -62,16 +63,18 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <Link to="/contact">
-              <Button className="bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue text-primary-foreground hover:opacity-90 transition-opacity">
+              <Button className="rounded-xl bg-foreground text-background shadow-lg shadow-foreground/10 transition-transform hover:scale-[1.03]">
                 Start a Project
+                <ArrowRight className="ml-2" size={16} />
               </Button>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg text-foreground hover:bg-secondary"
+            className="rounded-xl border border-border/70 bg-card/80 p-2 text-foreground shadow-sm backdrop-blur md:hidden"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle navigation menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -80,16 +83,16 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden glass border-t border-border">
+        <div className="border-t border-border/70 bg-background/95 backdrop-blur-xl md:hidden">
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                className={`block rounded-xl px-4 py-3 text-sm font-medium transition-all ${
                   location.pathname === link.path
-                    ? "bg-accent text-accent-foreground"
+                    ? "bg-foreground text-background"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                 }`}
               >
@@ -97,7 +100,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link to="/contact" onClick={() => setIsOpen(false)}>
-              <Button className="w-full bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue text-primary-foreground hover:opacity-90 transition-opacity">
+              <Button className="mt-2 w-full rounded-xl bg-foreground text-background">
                 Start a Project
               </Button>
             </Link>

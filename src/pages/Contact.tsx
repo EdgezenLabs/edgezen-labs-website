@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { CheckCircle2, Clock, Mail, MapPin, Phone, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -30,176 +30,134 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="site-shell min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Get in <span className="gradient-text">Touch</span>
+      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+        <div className="absolute inset-0 mesh-gradient" />
+        <div className="absolute inset-0 mesh-grid opacity-30" />
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-background/80 px-4 py-2 text-sm font-semibold text-accent shadow-sm backdrop-blur">
+              <Sparkles size={16} />
+              Start the conversation
+            </p>
+            <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-7xl">
+              Tell us what you want to <span className="gradient-text">build next</span>.
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue mx-auto mb-8" />
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Ready to start your next project? Let's build something amazing together.
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground md:text-xl">
+              Share your product idea, business website, app, or platform requirement. We will help shape it into a clear build plan.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Content */}
       <section className="pb-20 md:pb-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Let's Talk</h2>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  Have a project in mind? Whether you need a mobile app, web platform, cloud solution, or game—we're here to help bring your vision to life.
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="space-y-6">
+              <div className="rounded-3xl border border-border/70 bg-card p-7 shadow-sm">
+                <h2 className="mb-4 text-3xl font-bold tracking-tight">Let's Talk</h2>
+                <p className="leading-7 text-muted-foreground">
+                  Whether you need a mobile app, business website, web platform, cloud solution, or game, we can help turn the idea into a product people can actually use.
                 </p>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="glass rounded-lg p-3">
-                    <Mail className="text-accent" size={24} />
+              {[
+                {
+                  icon: Mail,
+                  title: "Email",
+                  value: "edgezenlabs@gmail.com",
+                  href: "mailto:edgezenlabs@gmail.com",
+                },
+                {
+                  icon: Phone,
+                  title: "Phone",
+                  value: "+91 76738 38389 | +91 86808 90318",
+                  href: "tel:+917673838389",
+                },
+                {
+                  icon: MapPin,
+                  title: "Location",
+                  value: "Global - Remote First",
+                },
+              ].map((item) => (
+                <div key={item.title} className="flex items-start gap-4 rounded-2xl border border-border/70 bg-card p-5 shadow-sm transition-all hover:border-accent/30">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                    <item.icon size={22} />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <a
-                      href="mailto:edgezenlabs@gmail.com"
-                      className="text-muted-foreground hover:text-accent transition-colors"
-                    >
-                      edgezenlabs@gmail.com
-                    </a>
+                    <h3 className="font-semibold">{item.title}</h3>
+                    {item.href ? (
+                      <a href={item.href} className="mt-1 block text-sm text-muted-foreground transition-colors hover:text-accent">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="mt-1 text-sm text-muted-foreground">{item.value}</p>
+                    )}
                   </div>
                 </div>
+              ))}
 
-                <div className="flex items-start space-x-4">
-                  <div className="glass rounded-lg p-3">
-                    <Phone className="text-accent" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
-                    <a
-                      href="tel:+1234567890"
-                      className="text-muted-foreground hover:text-accent transition-colors"
-                    >
-                     +91 9176738389 | +91 8680890318
-                    </a>
-                  </div>
+              <div className="rounded-3xl border border-border/70 bg-foreground p-7 text-background shadow-xl shadow-foreground/10">
+                <div className="mb-5 flex items-center gap-3">
+                  <Clock size={22} />
+                  <h3 className="text-xl font-semibold">What happens next?</h3>
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="glass rounded-lg p-3">
-                    <MapPin className="text-accent" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-muted-foreground">Global - Remote First</p>
-                  </div>
+                <div className="space-y-4 text-sm text-background/75">
+                  {["We review your idea and goals.", "We suggest the right scope and stack.", "We plan the first practical version."].map((item) => (
+                    <div key={item} className="flex gap-3">
+                      <CheckCircle2 size={17} className="mt-0.5 text-background" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
-              </div>
-
-              <div className="glass rounded-2xl p-6">
-                <h3 className="text-xl font-semibold mb-4 gradient-text">Why Work With Us?</h3>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">✓</span>
-                    Expert team with 10+ years experience
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">✓</span>
-                    Proven track record of 100+ successful projects
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">✓</span>
-                    Agile development with regular updates
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-accent mr-2">✓</span>
-                    End-to-end support from design to deployment
-                  </li>
-                </ul>
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6">Start Your Project</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Your Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    required
-                    className="w-full"
-                  />
+            <div className="relative">
+              <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-gradient-purple/15 via-gradient-pink/10 to-gradient-blue/15 blur-2xl" />
+              <div className="relative rounded-3xl border border-border/70 bg-card p-7 shadow-2xl shadow-foreground/10 md:p-9">
+                <div className="mb-8">
+                  <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-accent">Project Inquiry</p>
+                  <h3 className="text-3xl font-bold tracking-tight">Start Your Project</h3>
                 </div>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="name" className="mb-2 block text-sm font-medium">
+                        Your Name
+                      </label>
+                      <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="ex: Maya Patel" required className="h-12 rounded-xl" />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="mb-2 block text-sm font-medium">
+                        Phone Number
+                      </label>
+                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="ex: +91 98765 43210" className="h-12 rounded-xl" />
+                    </div>
+                  </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email Address
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@company.com"
-                    required
-                    className="w-full"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="email" className="mb-2 block text-sm font-medium">
+                      Email Address
+                    </label>
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="ex: you@company.com" required className="h-12 rounded-xl" />
+                  </div>
 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                    Phone Number
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+1 (234) 567-890"
-                    className="w-full"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="message" className="mb-2 block text-sm font-medium">
+                      Project Details
+                    </label>
+                    <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="ex: A mobile app for booking services with admin dashboard and analytics" required className="min-h-[170px] rounded-xl" />
+                  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Project Details
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your project..."
-                    required
-                    className="w-full min-h-[150px]"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue text-primary-foreground hover:opacity-90 transition-opacity"
-                  size="lg"
-                >
-                  Send Message
-                  <Send className="ml-2" size={18} />
-                </Button>
-              </form>
+                  <Button type="submit" className="h-13 w-full rounded-xl bg-foreground text-background">
+                    Send Message
+                    <Send className="ml-2" size={18} />
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -211,3 +169,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

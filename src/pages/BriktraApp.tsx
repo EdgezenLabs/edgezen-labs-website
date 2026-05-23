@@ -175,7 +175,7 @@ const BriktraApp = () => {
   const [hoveredModule, setHoveredModule] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="site-shell min-h-screen overflow-x-hidden bg-background">
       <SEO 
         title="Briktra | Mobile-First ERP for Construction"
         description="Transform your construction operations with Briktra. The leading mobile-first ERP for project, labour, and material management with GPS attendance and offline support."
@@ -243,7 +243,7 @@ const BriktraApp = () => {
               <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-orange/5 rounded-full blur-[100px] animate-float" style={{ animationDelay: "2s" }} />
               
               {/* Feature Highlight Tags */}
-              <div className="absolute -left-10 top-1/4 space-y-3 z-20 hidden xl:block">
+              <div className="absolute -left-16 top-1/4 space-y-3 z-20 hidden xl:block">
                 {[
                   { text: "GPS Attendance", icon: MapPin },
                   { text: "Smart Reporting", icon: Newspaper },

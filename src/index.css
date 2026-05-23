@@ -190,11 +190,55 @@ All colors MUST be HSL.
     background-size: 40px 40px;
   }
 
+  .mesh-gradient {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(at 8% 12%, hsl(var(--gradient-purple) / 0.14) 0px, transparent 42%),
+      radial-gradient(at 82% 18%, hsl(var(--gradient-blue) / 0.13) 0px, transparent 44%),
+      radial-gradient(at 50% 86%, hsl(var(--gradient-pink) / 0.1) 0px, transparent 46%);
+  }
+
   .mesh-grid {
     background-image: 
       linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
     background-size: 60px 60px;
+  }
+
+  .site-shell {
+    position: relative;
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 8% 6%, hsl(var(--gradient-purple) / 0.08), transparent 28rem),
+      radial-gradient(circle at 92% 10%, hsl(var(--gradient-blue) / 0.08), transparent 30rem),
+      radial-gradient(circle at 48% 52%, hsl(var(--gradient-pink) / 0.05), transparent 32rem),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary) / 0.34) 48%, hsl(var(--background)));
+  }
+
+  .site-shell::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 82%);
+  }
+
+  .site-shell::after {
+    content: "";
+    position: fixed;
+    inset: auto -12rem 8rem auto;
+    z-index: -1;
+    width: 34rem;
+    height: 34rem;
+    pointer-events: none;
+    border-radius: 9999px;
+    background: hsl(var(--gradient-blue) / 0.08);
+    filter: blur(90px);
   }
 
   .animate-float {

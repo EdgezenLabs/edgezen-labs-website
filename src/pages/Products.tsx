@@ -3,253 +3,292 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-const credosafeLogo = "/credo_logo.jpg";
-const briktraLogo = "/bricktra.jpg";
-const expeniqoLogo = "/expeniqo-logo.png";
-const cardclashLogo = "/cardclash.png";
+import { motion, Variants } from "framer-motion";
 
 const Products = () => {
+  const credosafeLogo = "/credo_logo.jpg";
+  const briktraLogo = "/bricktra.jpg";
+  const expeniqoLogo = "/expeniqo-logo.png";
+  const cardclashLogo = "/cardclash.png";
+  const maintzenLogo = "/maintzen_logo_accurate.png";
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeInOut" }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Our <span className="gradient-text">Products</span>
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue mx-auto mb-8" />
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Innovative solutions built to transform industries and empower businesses
-            </p>
+      <section className="pt-40 pb-24 md:pt-52 md:pb-40 mesh-gradient relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-5xl md:text-7xl font-bold tracking-tight"
+            >
+              Our <span className="gradient-text">Masterpieces</span>
+            </motion.h1>
+            <div className="w-24 h-1 bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue mx-auto mb-8 rounded-full" />
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl md:text-2xl text-muted-foreground font-light tracking-wide max-w-2xl mx-auto"
+            >
+              Precision-engineered solutions designed to redefine industry standards.
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* CredoSafe */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-32 bg-secondary/10 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <img src={credosafeLogo} alt="CredoSafe" className="w-full max-w-md mx-auto" />
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-gold/10 rounded-3xl blur-2xl group-hover:bg-gold/20 transition-all duration-700" />
+                <img src={credosafeLogo} alt="CredoSafe" className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]" />
               </div>
-              <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2">
+              <div className="space-y-8">
+                <div className="inline-flex items-center space-x-2 glass rounded-full px-5 py-2 border-gold/20">
                   <Shield size={16} className="text-gold" />
-                  <span className="text-sm text-gold font-medium">Loan Processing ERP</span>
+                  <span className="text-sm text-gold font-medium tracking-wider uppercase">Enterprise Loan ERP</span>
                 </div>
-                <h2 className="text-4xl font-bold text-gold">CredoSafe</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Complete loan processing and ERP system designed for financial institutions. Manage the entire loan lifecycle from application to disbursal with our mobile-first platform.
+                <h2 className="text-5xl font-bold text-gold tracking-tight">CredoSafe</h2>
+                <p className="text-xl text-muted-foreground leading-relaxed font-light">
+                  A high-performance loan processing ecosystem designed for elite financial institutions. Seamlessly manage the complete credit lifecycle with millisecond precision.
                 </p>
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    "Loan Application Management",
-                    "Credit Verification & Checks",
-                    "Document Management & Vault",
-                    "Approval Workflows",
-                    "Automated Disbursal",
-                    "Analytics & Reporting Dashboard",
-                    "Multi-channel Integration",
-                    "Role-based Access Control",
+                    "Lifecycle Management",
+                    "Real-time Credit Verification",
+                    "Encrypted Document Vault",
+                    "Dynamic Approval Flows",
+                    "Automated Liquidity",
+                    "Predictive Analytics",
                   ].map((feature) => (
-                    <div key={feature} className="flex items-center space-x-3">
-                      <Check className="text-gold shrink-0" size={20} />
-                      <span className="text-muted-foreground">{feature}</span>
+                    <div key={feature} className="flex items-center space-x-3 group">
+                      <Check className="text-gold shrink-0 transition-transform group-hover:scale-125" size={20} />
+                      <span className="text-muted-foreground font-light">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Briktra */}
-      <section className="py-20">
+      <section className="py-32 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6 order-2 md:order-1">
-                <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8 order-2 md:order-1">
+                <div className="inline-flex items-center space-x-2 glass rounded-full px-5 py-2 border-orange/20">
                   <HardHat size={16} className="text-orange" />
-                  <span className="text-sm text-orange font-medium">Construction ERP</span>
+                  <span className="text-sm text-orange font-medium tracking-wider uppercase">Industrial Architecture ERP</span>
                 </div>
-                <h2 className="text-4xl font-bold text-orange">Briktra</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Mobile-first ERP for construction and contractors. Built for the field with offline capability, multilingual support, and super lightweight performance.
+                <h2 className="text-5xl font-bold text-orange tracking-tight">Briktra</h2>
+                <p className="text-xl text-muted-foreground leading-relaxed font-light">
+                  The definitive field-first ERP for construction giants. Engineered for extreme performance in low-connectivity environments with sophisticated multilingual logic.
                 </p>
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    "Project Management & Tracking",
-                    "Labour Attendance & Management",
-                    "Material Procurement & Inventory",
-                    "Vendor & Supplier Management",
-                    "Expense Tracking & Budgeting",
-                    "Site Reports & Documentation",
-                    "Offline-first Architecture",
-                    "Multilingual Interface",
+                    "Project Orchestration",
+                    "Labor Optimization",
+                    "Asset Intelligence",
+                    "Vendor Ecosystems",
+                    "Fiscal Governance",
+                    "Offline-Ready Core",
                   ].map((feature) => (
-                    <div key={feature} className="flex items-center space-x-3">
-                      <Check className="text-orange shrink-0" size={20} />
-                      <span className="text-muted-foreground">{feature}</span>
+                    <div key={feature} className="flex items-center space-x-3 group">
+                      <Check className="text-orange shrink-0 transition-transform group-hover:scale-125" size={20} />
+                      <span className="text-muted-foreground font-light">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <div className="pt-4">
+                <div className="pt-6">
                   <Link to="/briktra-app">
-                    <Button className="bg-orange hover:bg-orange/90 text-white rounded-lg">
-                      Learn More <ChevronRight size={16} className="ml-1" />
+                    <Button className="bg-orange hover:bg-orange/90 text-white rounded-2xl px-8 py-6 text-lg hover:shadow-xl hover:shadow-orange/20 transition-all">
+                      Explore Briktra <ChevronRight size={16} className="ml-2" />
                     </Button>
                   </Link>
                 </div>
               </div>
-              <div className="order-1 md:order-2">
-                <img src={briktraLogo} alt="Briktra" className="w-full max-w-md mx-auto" />
+              <div className="order-1 md:order-2 relative group">
+                <div className="absolute -inset-4 bg-orange/10 rounded-3xl blur-2xl group-hover:bg-orange/20 transition-all duration-700" />
+                <img src={briktraLogo} alt="Briktra" className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]" />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Expeniqo */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-32 bg-secondary/10 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <img src={expeniqoLogo} alt="Expeniqo" className="w-full max-w-md mx-auto" />
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-accent/10 rounded-3xl blur-2xl group-hover:bg-accent/20 transition-all duration-700" />
+                <img src={expeniqoLogo} alt="Expeniqo" className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]" />
               </div>
-              <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2">
-                  <TrendingUp size={16} className="text-gold" />
-                  <span className="text-sm text-gold font-medium">AI Expense Tracker</span>
+              <div className="space-y-8">
+                <div className="inline-flex items-center space-x-2 glass rounded-full px-5 py-2">
+                  <TrendingUp size={16} className="text-accent" />
+                  <span className="text-sm text-accent font-medium tracking-wider uppercase">Cognitive Finance AI</span>
                 </div>
-                <h2 className="text-4xl font-bold text-gold">Expeniqo</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Smart expense tracker powered by AI. Automatically reads your SMS messages, identifies transactions, categorizes spending, and generates actionable insights.
+                <h2 className="text-5xl font-bold gradient-text tracking-tight">Expeniqo</h2>
+                <p className="text-xl text-muted-foreground leading-relaxed font-light">
+                  Next-generation financial intelligence. Expeniqo leverages advanced neural pattern recognition to automate expense tracking and deliver breathtaking fiscal insights.
                 </p>
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    "Automatic SMS Transaction Reading",
-                    "AI-powered Categorization",
-                    "Smart Spending Analytics",
-                    "Budget Planning & Alerts",
-                    "Expense Forecasting",
-                    "Multi-account Management",
-                    "Export Reports (PDF/Excel)",
-                    "Privacy-first Design",
+                    "Neural SMS Extraction",
+                    "Cognitive Categorization",
+                    "Predictive Analytics",
+                    "Fiscal Governance",
+                    "Smart Forecasting",
+                    "Privacy-First Core",
                   ].map((feature) => (
-                    <div key={feature} className="flex items-center space-x-3">
-                      <Check className="text-gold shrink-0" size={20} />
-                      <span className="text-muted-foreground">{feature}</span>
+                    <div key={feature} className="flex items-center space-x-3 group">
+                      <Check className="text-accent shrink-0 transition-transform group-hover:scale-125" size={20} />
+                      <span className="text-muted-foreground font-light">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ClashCard Legends Arena */}
-      <section className="py-20">
+      <section className="py-32 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6 order-2 md:order-1">
-                <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8 order-2 md:order-1">
+                <div className="inline-flex items-center space-x-2 glass rounded-full px-5 py-2">
                   <Swords size={16} className="text-accent" />
-                  <span className="text-sm text-accent font-medium">Strategy Card Battle Game</span>
+                  <span className="text-sm text-accent font-medium tracking-wider uppercase">Immersive Strategy Game</span>
                 </div>
-                <h2 className="text-4xl font-bold gradient-text">ClashCard Legends Arena</h2>
-                <div className="text-accent font-semibold italic text-lg opacity-80">
-                  Strategy. Cards. Legends. Battle Beyond Limits.
-                </div>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  ClashCard Legends Arena is a competitive mobile fantasy card-battle game where players build powerful decks, collect unique legendary cards, and compete in strategic arena battles. Designed with an immersive fantasy experience and simple gameplay flow, the game combines deck-building mechanics, tactical decision-making, and engaging progression systems.
+                <h2 className="text-5xl font-bold gradient-text tracking-tight">ClashCard Legends</h2>
+                <p className="text-xl text-muted-foreground leading-relaxed font-light">
+                  The ultimate competitive card-battle experience. Built on a scalable multiplayer architecture with breathtaking AAA-grade visual effects and tactical depth.
                 </p>
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    "Custom Deck Building System",
-                    "Fantasy-Themed Strategic Card Battles",
-                    "Legendary & Rare Card Collection",
-                    "Secure Account System with Authentication",
-                    "Progression & Player Growth System",
-                    "Competitive Arena Gameplay",
-                    "Mobile-Optimized User Experience",
-                    "Expandable Multiplayer Architecture",
+                    "Real-time Matchmaking",
+                    "Legendary Card Economy",
+                    "Dynamic Battle Arenas",
+                    "Progression Mastery",
+                    "Fluid AAA Interface",
+                    "Cross-Platform Core",
                   ].map((feature) => (
-                    <div key={feature} className="flex items-center space-x-3">
-                      <Check className="text-accent shrink-0" size={20} />
-                      <span className="text-muted-foreground">{feature}</span>
+                    <div key={feature} className="flex items-center space-x-3 group">
+                      <Check className="text-accent shrink-0 transition-transform group-hover:scale-125" size={20} />
+                      <span className="text-muted-foreground font-light">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-muted-foreground italic">
-                  Players can create personalized decks, unlock powerful characters, and challenge opponents through exciting arena gameplay. The game focuses on delivering a smooth mobile experience with intuitive design and scalable systems for future competitive and social features.
-                </p>
               </div>
-              <div className="order-1 md:order-2">
-                <img src={cardclashLogo} alt="ClashCard Legends Arena" className="w-full max-w-md mx-auto" />
+              <div className="order-1 md:order-2 relative group">
+                <div className="absolute -inset-4 bg-accent/10 rounded-3xl blur-2xl group-hover:bg-accent/20 transition-all duration-700" />
+                <img src={cardclashLogo} alt="ClashCard Legends" className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]" />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Maintzen */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-32 bg-secondary/10 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="flex justify-center">
-                <div className="w-full max-w-md aspect-square bg-muted rounded-2xl flex items-center justify-center border-2 border-dashed border-muted-foreground/20">
-                  <span className="text-muted-foreground italic">Maintzen Logo Placeholder</span>
-                </div>
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-blue-500/10 rounded-3xl blur-2xl group-hover:bg-blue-500/20 transition-all duration-700" />
+                <img
+                  src={maintzenLogo}
+                  alt="Maintzen"
+                  className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                />
               </div>
-              <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2">
+              <div className="space-y-8">
+                <div className="inline-flex items-center space-x-2 glass rounded-full px-5 py-2 border-blue-500/20">
                   <Shield size={16} className="text-blue-500" />
-                  <span className="text-sm text-blue-500 font-medium">Field Service Management</span>
+                  <span className="text-sm text-blue-500 font-medium tracking-wider uppercase">Service Orchestration</span>
                 </div>
-                <h2 className="text-4xl font-bold text-blue-600">Maintzen</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Maintzen is a specialized field service management platform designed for RO water purifier service companies. Streamline your entire service lifecycle from agreement signing to technician dispatch.
+                <h2 className="text-5xl font-bold text-blue-600 tracking-tight">Maintzen</h2>
+                <p className="text-xl text-muted-foreground leading-relaxed font-light">
+                  Revolutionizing service management for the water purification industry. An end-to-end orchestration platform for high-velocity field teams.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <h3 className="font-semibold text-foreground flex items-center gap-2">
-                      <Check className="text-blue-500" size={18} /> Admin Dashboard
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold flex items-center gap-3">
+                      <span className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">A</span> Admin Command
                     </h3>
-                    <ul className="text-sm text-muted-foreground space-y-1 pl-7">
-                      <li>• Manage Customer Agreements</li>
-                      <li>• Automated Service Scheduling</li>
-                      <li>• Technician Job Assignment</li>
-                      <li>• Comprehensive Field Reports</li>
+                    <ul className="text-sm text-muted-foreground space-y-2 font-light">
+                      <li>• Agreement Automation</li>
+                      <li>• Smart Dispatching</li>
+                      <li>• Fiscal Intelligence</li>
                     </ul>
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="font-semibold text-foreground flex items-center gap-2">
-                      <Check className="text-blue-500" size={18} /> Tech Mobile App
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold flex items-center gap-3">
+                       <span className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">T</span> Technician Edge
                     </h3>
-                    <ul className="text-sm text-muted-foreground space-y-1 pl-7">
-                      <li>• Real-time Job Notifications</li>
-                      <li>• Built-in Customer Navigation</li>
-                      <li>• Instant Service Reporting</li>
-                      <li>• Digital Signature Capture</li>
+                    <ul className="text-sm text-muted-foreground space-y-2 font-light">
+                      <li>• Real-time Routing</li>
+                      <li>• Digital Diagnostics</li>
+                      <li>• Instant Compliance</li>
                     </ul>
                   </div>
                 </div>
-                <p className="text-muted-foreground italic">
-                  Designed to help RO service businesses scale by automating periodic maintenance tracking and optimizing field worker efficiency.
-                </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

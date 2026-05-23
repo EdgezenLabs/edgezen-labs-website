@@ -4,13 +4,15 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-const edgezenLogo = "/ez.png";
-const credosafeLogo = "/credo_logo.jpg";
-const briktraLogo = "/bricktra.jpg";
-const expeniqoLogo = "/expeniqo-logo.png";
-const cardClashLogo = "/cardclash.png";
+import { motion } from "framer-motion";
 
 const Index = () => {
+  const credosafeLogo = "/credo_logo.jpg";
+  const briktraLogo = "/bricktra.jpg";
+  const expeniqoLogo = "/expeniqo-logo.png";
+  const cardClashLogo = "/cardclash.png";
+  const maintzenLogo = "/maintzen_logo_accurate.png";
+
   const products = [
     {
       name: "CredoSafe",
@@ -39,101 +41,157 @@ const Index = () => {
     {
       name: "Maintzen",
       description: "Specialized field service management for RO water purifier companies. Manage agreements, schedules, and technicians with real-time field reporting.",
-      logo: "", // Placeholder for Maintzen
+      logo: maintzenLogo,
       color: "text-blue-500",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-gradient-purple/10 via-gradient-pink/5 to-gradient-blue/10 animate-pulse" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-purple/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-pink/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+        <div className="absolute inset-0 z-0">
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1],
+              rotate: [0, 90, 0]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-gradient-purple/30 rounded-full blur-[120px]" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.3, 1],
+              opacity: [0.1, 0.15, 0.1],
+              rotate: [0, -90, 0]
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-gradient-blue/30 rounded-full blur-[120px]" 
+          />
+        </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center space-y-8 max-w-5xl mx-auto">
-            <div className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2 mb-4">
-              <Sparkles size={16} className="text-accent" />
-              <span className="text-sm text-muted-foreground">Engineering Digital Excellence</span>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2 mb-4"
+            >
+              <Sparkles size={16} className="text-accent animate-pulse" />
+              <span className="text-sm text-muted-foreground font-medium tracking-wide">ENGINEERING DIGITAL EXCELLENCE</span>
+            </motion.div>
 
-            {/* <img
-              src={edgezenLogo}
-              alt="EdgeZen Labs"
-              className="h-24 md:h-32 w-auto mx-auto mb-8 animate-glow"
-            /> */}
-
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl sm:text-6xl md:text-8xl font-bold leading-[1.1] tracking-tight"
+            >
               We Build{" "}
-              <span className="gradient-text">Intelligent, Beautiful,</span>{" "}
+              <span className="gradient-text text-glow">Intelligent, Beautiful,</span>{" "}
               Scalable Products
-            </h1>
+            </motion.h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Mobile Apps • Web Apps • Cloud • AI • Games
-            </p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light tracking-wide"
+            >
+              Enterprise Mobile Apps • AI Systems • Immersive Games
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8"
+            >
               <Link to="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue text-primary-foreground hover:opacity-90 transition-opacity text-lg px-8">
+                <Button size="lg" className="bg-foreground text-background hover:scale-105 transition-transform text-lg px-10 py-7 rounded-2xl shadow-xl shadow-foreground/10">
                   Start a Project
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
               <Link to="/products">
-                <Button size="lg" variant="outline" className="text-lg px-8 border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+                <Button size="lg" variant="ghost" className="text-lg px-10 py-7 rounded-2xl bg-secondary/50 backdrop-blur-sm hover:bg-secondary/80">
                   View Our Products
                 </Button>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
+        
+        <motion.div 
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground/30"
+        >
+          <div className="w-1 h-10 bg-gradient-to-b from-muted-foreground/50 to-transparent rounded-full" />
+        </motion.div>
       </section>
 
       {/* Introduction */}
-      <section className="py-20 md:py-32">
+      <section className="py-24 md:py-40 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
-              Who We Are
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue mx-auto mb-12" />
-            
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-              <p>
-                <span className="text-foreground font-semibold">EdgeZen Labs</span> is a full-stack software development company specializing in mobile-first applications, cloud-native systems, and enterprise-grade digital solutions.
-              </p>
-              <p>
-                We build with cutting-edge technologies: <span className="text-accent">Flutter</span>, <span className="text-accent">React</span>, <span className="text-accent">React Native</span>, <span className="text-accent">Unity</span>, <span className="text-accent">TypeScript</span>, <span className="text-accent">Node.js</span>, <span className="text-accent">FastAPI</span>, and <span className="text-accent">Python</span>.
-              </p>
-              <p>
-                Our expertise spans secure cloud architecture on AWS and Google Cloud, AI integrations, API engineering, and immersive game development. We deliver products that are beautiful, scalable, and built to last.
-              </p>
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="space-y-12"
+            >
+              <div className="space-y-4 text-center">
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Who We Are</h2>
+                <div className="w-20 h-1 bg-gradient-to-r from-gradient-purple to-gradient-blue mx-auto rounded-full" />
+              </div>
+              
+              <div className="space-y-8 text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
+                <p>
+                  <span className="text-foreground font-medium">EdgeZen Labs</span> is an elite digital product studio specializing in high-performance cross-platform applications and AI-driven solutions.
+                </p>
+                <div className="flex flex-wrap gap-3 py-4">
+                  {["Flutter", "React", "Unity", "TypeScript", "Node.js", "Python", "AWS"].map((tech) => (
+                    <span key={tech} className="px-4 py-1 rounded-full border border-border text-sm font-medium hover:border-accent transition-colors cursor-default">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <p>
+                  We blend deep engineering expertise with world-class design to deliver products that are not just functional, but <span className="text-accent underline underline-offset-8">extraordinary</span>.
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Products Showcase */}
-      <section className="py-20 md:py-32 bg-secondary/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8">
-              Our Products
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue mx-auto mb-6" />
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Innovative solutions designed to transform businesses and delight users
+      <section className="py-24 md:py-40 bg-secondary/10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Our Portfolio</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+              Pushing the boundaries of what's possible in tech
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {products.map((product) => (
-              <ProductCard key={product.name} {...product} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
+            {products.map((product, index) => (
+              <motion.div
+                key={product.name}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <ProductCard {...product} />
+              </motion.div>
             ))}
           </div>
         </div>

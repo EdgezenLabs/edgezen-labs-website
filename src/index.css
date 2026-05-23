@@ -190,49 +190,51 @@ All colors MUST be HSL.
     background-size: 40px 40px;
   }
 
-  .mesh-grid {
+  .mesh-gradient {
+    background-color: hsl(var(--background));
     background-image: 
-      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
-    background-size: 60px 60px;
+      radial-gradient(at 0% 0%, hsla(var(--gradient-purple) / 0.15) 0px, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(var(--gradient-pink) / 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(var(--gradient-blue) / 0.15) 0px, transparent 50%);
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .mesh-gradient-dark {
+    background-color: hsl(var(--background));
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(var(--gradient-purple) / 0.2) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, hsla(var(--gradient-pink) / 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(var(--gradient-blue) / 0.2) 0px, transparent 50%);
   }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+  .animate-reveal {
+    animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
+  @keyframes reveal {
     from {
-      box-shadow: 0 0 20px hsl(var(--briktra-primary) / 0.3);
+      opacity: 0;
+      transform: translateY(20px);
     }
     to {
-      box-shadow: 0 0 40px hsl(var(--briktra-primary) / 0.5);
-    }
-  }
-
-  .animate-bounce-slow {
-    animation: bounce-slow 4s ease-in-out infinite;
-  }
-
-  @keyframes bounce-slow {
-    0%, 100% {
+      opacity: 1;
       transform: translateY(0);
     }
-    50% {
-      transform: translateY(-15px);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
     }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsla(var(--accent) / 0.3);
   }
 }

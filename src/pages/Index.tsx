@@ -155,15 +155,15 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="space-y-3">
-                  {products.slice(0, 4).map((product, index) => (
+                  {products.map((product, index) => (
                     <Link
                       key={product.name}
                       to={product.link || "/products"}
                       className="group flex items-center gap-4 rounded-2xl border border-border/70 bg-background/70 p-4 transition-all hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg"
                     >
-                      <div className="flex h-14 w-16 items-center justify-center rounded-xl bg-secondary p-2">
-                        <img src={product.logo} alt={product.name} className="max-h-10 w-auto object-contain" />
-                      </div>
+                       <div className={`flex h-14 w-16 shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-secondary/80 to-secondary/40${product.name === "Briktra" ? " p-1" : " rounded-2xl p-2.5"}`}>
+                         <img src={product.logo} alt={product.name} className={`max-h-10 w-auto object-contain opacity-90 drop-shadow-md transition-all duration-300${product.name === "Briktra" ? "" : " rounded-md"}`} />
+                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="truncate font-semibold">{product.name}</p>
                         <p className="text-sm text-muted-foreground">{product.eyebrow}</p>

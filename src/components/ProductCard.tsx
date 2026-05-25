@@ -19,8 +19,8 @@ const ProductCard = ({ name, description, logo, color, eyebrow = "Product", link
         
         <div className="relative flex h-full flex-col justify-between gap-8">
           <div className="flex items-start justify-between gap-6">
-            <div className="flex h-24 w-32 items-center justify-center rounded-xl bg-secondary/70 p-4 ring-1 ring-border/70 transition-all duration-500 group-hover:bg-background group-hover:ring-accent/20">
-              <img src={logo} alt={name} className="max-h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105" />
+            <div className={`flex h-24 w-32 shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-secondary/60 to-secondary/30 p-4 ring-1 ring-border/50 transition-all duration-500 group-hover:bg-background/80 group-hover:ring-accent/20${name === "Briktra" ? "" : " rounded-2xl"}`}>
+               <img src={logo} alt={name} className={`max-h-14 w-auto object-contain opacity-85 drop-shadow-lg transition-transform duration-500 group-hover:scale-105${name === "Briktra" ? "" : " rounded-lg"}`} />
             </div>
             {link ? (
               <Link

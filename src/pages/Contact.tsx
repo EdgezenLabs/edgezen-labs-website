@@ -3,12 +3,10 @@ import { CheckCircle2, Clock, Mail, MapPin, Phone, Send, Sparkles } from "lucide
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const Contact = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,10 +16,15 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
+    const subject = encodeURIComponent(`Project Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nProject Details:\n${formData.message}`
+    );
+    const link = `mailto:edgezenlabs@gmail.com?subject=${subject}&body=${body}`;
+    const win = window.open(link, "_blank");
+    if (!win) {
+      window.location.href = link;
+    }
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 

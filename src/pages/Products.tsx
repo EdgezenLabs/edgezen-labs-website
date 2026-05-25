@@ -183,9 +183,9 @@ const Products = () => {
                 <div className="space-y-3">
                   {products.map((product, index) => (
                     <a key={product.name} href={`#${product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="group flex items-center gap-4 rounded-[2rem] border border-border/50 bg-background/70 p-4 transition-all hover:border-accent/20 hover:shadow-sm">
-                      <div className={`flex h-14 w-16 items-center justify-center rounded-[2rem] ${product.logoBackground} p-3 shadow-sm`}>
-                        <img src={product.logo} alt={product.name} className="max-h-10 w-auto object-contain" />
-                      </div>
+                      <div className={`flex h-14 w-16 shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br ${product.gradient} shadow-sm${product.name === "Briktra" ? " p-1" : " rounded-2xl p-2.5"}`}>
+                         <img src={product.logo} alt={product.name} className={`max-h-10 w-auto object-contain opacity-85 drop-shadow-md${product.name === "Briktra" ? "" : " rounded-md"}`} />
+                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="truncate font-semibold">{product.name}</p>
                         <p className="text-sm text-muted-foreground">{product.tagline}</p>
@@ -225,10 +225,10 @@ const Products = () => {
                       </div>
                       <div className={`relative flex min-h-[320px] items-center justify-center rounded-[2.5rem] bg-gradient-to-br ${product.gradient} p-8 shadow-inner shadow-slate-900/5`}>
                         <div className="absolute inset-0 rounded-[2.5rem] opacity-40 bg-white/0" />
-                        <div className={`relative flex h-full w-full items-center justify-center overflow-hidden rounded-[3rem] ${product.logoBackground} p-8 ring-1 ring-white/15 shadow-inner shadow-slate-900/5 backdrop-blur-sm`}>
-                          <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br ${product.gradient} opacity-20 blur-2xl" />
-                          <img src={product.logo} alt={product.name} className="relative max-h-72 w-auto object-contain opacity-90 transition-all duration-500" />
-                        </div>
+                           <div className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-gradient-to-br ${product.gradient} p-8 ring-1 ring-white/10 shadow-inner shadow-slate-900/5 backdrop-blur-sm${product.name === "Briktra" ? "" : " rounded-[2rem]"}`}>
+                             <div className={`absolute inset-0 bg-gradient-to-tl from-white/5 to-transparent opacity-60${product.name === "Briktra" ? "" : " rounded-[2rem]"}`} />
+                             <img src={product.logo} alt={product.name} className={`relative max-h-64 w-auto object-contain opacity-80 drop-shadow-lg transition-all duration-500${product.name === "Briktra" ? "" : " rounded-lg"}`} />
+                         </div>
                       </div>
                       <div className="mt-5 grid grid-cols-3 gap-3">
                         {product.stats.map((stat) => (

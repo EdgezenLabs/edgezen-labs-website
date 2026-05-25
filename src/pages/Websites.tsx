@@ -1,4 +1,5 @@
 import { ArrowRight, BadgeCheck, ExternalLink, Globe2, LayoutTemplate, MonitorSmartphone } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -146,10 +147,10 @@ const Websites = () => {
                 <p className="mt-4 text-lg leading-8 text-muted-foreground">
                   We design websites that make the offer clear, guide visitors toward action, and feel credible on every screen size.
                 </p>
-                <a href="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-accent">
+                <Link to="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-accent">
                   Start a website project
                   <ArrowRight className="ml-2" size={16} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

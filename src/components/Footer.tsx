@@ -88,15 +88,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Mail size={16} className="text-accent" />
-                <a href="mailto:edgezenlabs@gmail.com" className="transition-colors hover:text-accent">
-                  edgezenlabs@gmail.com
+                <a href="mailto:contact@edgezenlabs.com" className="transition-colors hover:text-accent">
+                  contact@edgezenlabs.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <Phone size={16} className="mt-0.5 text-accent" />
                 <div className="space-y-1">
-                  <a href="tel:+917673838389" className="block transition-colors hover:text-accent">
-                    +91 76738 38389
+                  <a href="tel:+919176738389" className="block transition-colors hover:text-accent">
+                    +91 91767 38389
                   </a>
                   <a href="tel:+918680890318" className="block transition-colors hover:text-accent">
                     +91 86808 90318

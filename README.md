@@ -206,7 +206,7 @@ npm run preview
 ## 📞 Contact
 
 **EdgeZen Labs**
-- Email: edgezenlabs@gmail.com
+- Email: contact@edgezenlabs.com
 - Website: https://edgezenlabs.com
 
 ## 📄 License

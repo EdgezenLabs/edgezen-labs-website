@@ -229,10 +229,13 @@ const BriktraApp = () => {
                     Explore Briktra Website
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full px-10 py-7 text-lg h-auto border-2 border-border/50 hover:bg-orange/5 hover:border-orange/20 transition-all duration-300" asChild>
-                  <a href="#modules">
-                    View Modules
-                  </a>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="rounded-full px-10 py-7 text-lg h-auto border-2 border-border/50 hover:bg-orange/5 hover:border-orange/20 transition-all duration-300" 
+                  onClick={() => document.getElementById('modules')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  View Modules
                 </Button>
               </div>
               

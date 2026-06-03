@@ -20,7 +20,7 @@ const Contact = () => {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nProject Details:\n${formData.message}`
     );
-    const link = `mailto:edgezenlabs@gmail.com?subject=${subject}&body=${body}`;
+    const link = `mailto:contact@edgezenlabs.com?subject=${subject}&body=${body}`;
     const win = window.open(link, "_blank");
     if (!win) {
       window.location.href = link;
@@ -70,14 +70,14 @@ const Contact = () => {
                 {
                   icon: Mail,
                   title: "Email",
-                  value: "edgezenlabs@gmail.com",
-                  href: "mailto:edgezenlabs@gmail.com",
+                  value: "contact@edgezenlabs.com",
+                  href: "mailto:contact@edgezenlabs.com",
                 },
                 {
                   icon: Phone,
                   title: "Phone",
-                  value: "+91 76738 38389 | +91 86808 90318",
-                  href: "tel:+917673838389",
+                  value: "+91 91767 38389 | +91 86808 90318",
+                  href: "tel:+919176738389",
                 },
                 {
                   icon: MapPin,

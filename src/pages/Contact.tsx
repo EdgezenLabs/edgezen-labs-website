@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import { CheckCircle2, Clock, Mail, MapPin, Phone, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,22 +15,80 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Project Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nProject Details:\n${formData.message}`
-    );
-    const link = `mailto:contact@edgezenlabs.com?subject=${subject}&body=${body}`;
-    const win = window.open(link, "_blank");
-    if (!win) {
-      window.location.href = link;
+
+    if (formData.phone) {
+      const digitCount = formData.phone.replace(/[\D]/g, '').length;
+      if (digitCount > 15) {
+        toast.error("Phone number cannot exceed 15 digits.");
+        return;
+      }
+      const phoneRegex = /^\+?[0-9\s\-()]{7,20}$/;
+      if (!phoneRegex.test(formData.phone) || digitCount < 7) {
+        toast.error("Please enter a valid phone number.");
+        return;
+      }
     }
-    setFormData({ name: "", email: "", phone: "", message: "" });
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xdavnyly", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully! We'll get back to you soon.");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    let { name, value } = e.target;
+
+    if (name === "phone") {
+      if (/[^\d\s\-()+]/.test(value)) {
+        toast.error("Please enter only numbers and standard phone symbols.");
+        value = value.replace(/[^\d\s\-()+]/g, '');
+      }
+      const digitCount = value.replace(/[\D]/g, '').length;
+      if (digitCount > 15 || value.length > 25) {
+        toast.error("Phone number cannot exceed 15 digits.");
+        return; 
+      }
+    }
+
+    if (name === "name" && value.length > 100) {
+      toast.error("Name cannot exceed 100 characters.");
+      return;
+    }
+
+    if (name === "email" && value.length > 150) {
+      toast.error("Email cannot exceed 150 characters.");
+      return;
+    }
+
+    if (name === "message" && value.length > 2000) {
+      toast.error("Project details cannot exceed 2000 characters.");
+      return;
+    }
+
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -155,9 +214,9 @@ const Contact = () => {
                     <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="ex: A mobile app for booking services with admin dashboard and analytics" required className="min-h-[170px] rounded-xl" />
                   </div>
 
-                  <Button type="submit" className="h-13 w-full rounded-xl bg-foreground text-background">
-                    Send Message
-                    <Send className="ml-2" size={18} />
+                  <Button type="submit" disabled={isSubmitting} className="h-13 w-full rounded-xl bg-foreground text-background">
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {!isSubmitting && <Send className="ml-2" size={18} />}
                   </Button>
                 </form>
               </div>

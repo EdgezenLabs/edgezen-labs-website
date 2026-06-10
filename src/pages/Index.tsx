@@ -10,6 +10,7 @@ const briktraLogo = "/bricktra.jpg";
 const expeniqoLogo = "/expeniqo-logo.png";
 const cardClashLogo = "/cardclash.png";
 const maintzenLogo = "/maintzen_logo_accurate.png";
+const gstledgerLogo = "/gstledger-logo.png";
 
 const products = [
   {
@@ -51,6 +52,14 @@ const products = [
     logo: maintzenLogo,
     color: "text-blue-500",
     link: "/products#maintzen",
+  },
+  {
+    name: "GSTLedger Pro",
+    eyebrow: "Enterprise GST Suite",
+    description: "Precision invoicing, smarter inventory, and seamless GST compliance. All-in-one business management for high-speed POS & multi-warehouse operations.",
+    logo: gstledgerLogo,
+    color: "text-emerald-600",
+    link: "/products#gstledger-pro",
   },
 ];
 

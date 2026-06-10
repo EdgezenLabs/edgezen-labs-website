@@ -70,6 +70,7 @@ const Footer = () => {
                 { name: 'Expeniqo', path: '/products#expeniqo' },
                 { name: 'ClashCard Legends', path: '/products#clashcard-legends-arena' },
                 { name: 'Maintzen', path: '/products#maintzen' },
+                { name: 'GSTLedger Pro', path: '/products#gstledger-pro' },
               ].map((product) => (
                 <li key={product.name}>
                   <Link

@@ -10,6 +10,7 @@ const briktraLogo = "/bricktra.jpg";
 const expeniqoLogo = "/expeniqo-logo.png";
 const cardclashLogo = "/cardclash.png";
 const maintzenLogo = "/maintzen_logo_accurate.png";
+const gstledgerLogo = "/gstledger-logo.png";
 
 const products = [
   {
@@ -119,6 +120,27 @@ const products = [
       "Digital Signature Capture",
     ],
   },
+  {
+    name: "GSTLedger Pro",
+    tagline: "Enterprise GST Suite",
+    description: "Precision invoicing, smarter inventory, and seamless GST compliance. An all-in-one business management suite designed for high-speed POS and multi-warehouse operations.",
+    logo: gstledgerLogo,
+    icon: BadgeCheck,
+    color: "text-emerald-600",
+    logoBackground: "bg-emerald-500/10",
+    gradient: "from-emerald-600/20 via-green-500/10 to-teal-400/20",
+    stats: ["Precision GST", "POS Ready", "Loyalty Ready"],
+    features: [
+      "Unified Sales & Purchase Ledger",
+      "Advanced POS & Cashier Ops",
+      "Multi-Warehouse Inventory",
+      "Precision GST Compliance Engine",
+      "HSN/SAC Management",
+      "Ready-to-File GSTR Reports",
+      "Loyalty & Reward Programs",
+      "Interactive Analytics Dashboards",
+    ],
+  },
 ];
 
 const Products = () => {
@@ -182,7 +204,18 @@ const Products = () => {
                 </div>
                 <div className="space-y-3">
                   {products.map((product, index) => (
-                    <a key={product.name} href={`#${product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="group flex items-center gap-4 rounded-[2rem] border border-border/50 bg-background/70 p-4 transition-all hover:border-accent/20 hover:shadow-sm">
+                    <a 
+                      key={product.name} 
+                      href={`#/products#${product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} 
+                      className="group flex items-center gap-4 rounded-[2rem] border border-border/50 bg-background/70 p-4 transition-all hover:border-accent/20 hover:shadow-sm"
+                      onClick={(e) => {
+                        const id = product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+                        const element = document.getElementById(id);
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }}
+                    >
                       <div className={`flex h-14 w-16 shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br ${product.gradient} shadow-sm${product.name === "Briktra" ? " p-1" : " rounded-2xl p-2.5"}`}>
                          <img src={product.logo} alt={product.name} className={`max-h-10 w-auto object-contain opacity-85 drop-shadow-md${product.name === "Briktra" ? "" : " rounded-md"}`} />
                        </div>

@@ -69,6 +69,8 @@ const Navbar = () => {
             <img
               src={edgezenLogo}
               alt="EdgeZen Labs"
+              width={120}
+              height={40}
               className="h-8 w-auto transition-default group-hover:scale-105 lg:h-10"
             />
             <span className="hidden text-sm font-semibold tracking-tight text-foreground sm:inline">

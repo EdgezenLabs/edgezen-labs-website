@@ -16,55 +16,58 @@
 | 4 | Remaining Pages | ✅ Complete |
 | 5 | Components | ✅ Complete |
 | 6 | Motion | ✅ Complete |
-| 7 | Performance | ⏳ Pending |
+| 7 | Performance | ✅ Complete |
 | 8 | SEO | ⏳ Pending |
 | 9 | Accessibility | ⏳ Pending |
 | 10 | Final Polish | ⏳ Pending |
 
 ---
 
-## Phase 6 — Motion ✅
+## Phase 7 — Performance ✅
 
-**Goal:** Broader motion rollout, animated stats, page transitions, mobile nav stagger.
+**Goal:** Code splitting, image optimization, dependency pruning, smaller initial payload.
 
 ### Completed
 
-- [x] `src/lib/motion.ts` — shared easing, stagger, and transition tokens
-- [x] Enhanced `Reveal` — direction variants (`up`, `left`, `right`, `none`)
-- [x] `AnimatedStat` — count-up for numeric stats on scroll (respects reduced motion)
-- [x] `StaggerReveal` — staggered child reveals for grids/lists
-- [x] `PageTransition` — subtle route enter animation via `PageMain`
-- [x] `MobileNavMenu` — staggered slide-in for mobile sheet navigation
-- [x] Sheet slide timing tuned for smoother open/close
-- [x] Stat counters on home trust bar, case study metrics, About hero stats
-- [x] Case study features + Briktra workflow/modules use Reveal/StaggerReveal
-- [x] Legal pages wrapped with Reveal
-- [x] Product detail sections alternate left/right reveal
-- [x] Build + lint verified
+- [x] Lazy-loaded all routes with `React.lazy` + `Suspense` + `PageLoader`
+- [x] Vite `manualChunks` — `react-vendor`, `motion`, `forms`, `radix`, `icons`, `helmet`
+- [x] Removed unused `@tanstack/react-query` provider
+- [x] Removed duplicate shadcn `Toaster` (kept Sonner only)
+- [x] `OptimizedImage` + `webpSource()` — WebP with PNG/JPEG fallback
+- [x] `scripts/optimize-images.mjs` — sharp WebP conversion (`npm run optimize-images`)
+- [x] WebP assets: expeniqo (1284→27KB), cardclash (1573→122KB), gstledger (906→43KB), mockup, OG crop
+- [x] Favicon/OG meta switched from 1.4MB PNG to `ez.png` (7KB)
+- [x] Font weights trimmed (400–700 only)
+- [x] Explicit `width`/`height` on key images (CLS)
+- [x] Removed unused `holographic_intel` import from Briktra
+
+### Build results (post-split)
+
+| Chunk | Gzip |
+|-------|------|
+| `react-vendor` | 61 KB |
+| `motion` | 46 KB |
+| `index` (app shell) | 20 KB |
+| `radix` | 21 KB |
+| Home route (`Index` + layout) | ~13 KB |
+
+**Estimated home-first-load JS gzip: ~172 KB** (down from ~223 KB monolith)
 
 ### Files Changed
 
-- `src/lib/motion.ts`
-- `src/components/motion/AnimatedStat.tsx`, `StaggerReveal.tsx`, `PageTransition.tsx`
-- `src/components/marketing/Reveal.tsx`, `StatCard.tsx`, `CaseStudyPreview.tsx`, `ProductDetailSection.tsx`
-- `src/components/layout/MobileNavMenu.tsx`
-- `src/components/PageMain.tsx`, `Navbar.tsx`, `ui/sheet.tsx`
-- `src/pages/About.tsx`, `BriktraApp.tsx`, `legal/*`
+- `vite.config.ts`, `src/App.tsx`, `package.json`
+- `src/components/PageLoader.tsx`, `OptimizedImage.tsx`, `src/lib/images.ts`
+- `scripts/optimize-images.mjs`, `public/*.webp`, `index.html`
+- Image consumers: `ProductLogo`, `HomeHero`, `CaseStudyPreview`, `ProductDetailSection`, `Products`, `BriktraApp`
 
 ---
 
-## Phase 7 — Performance (Next)
+## Phase 8 — SEO (Next)
 
-- [ ] Code split routes (framer-motion, pages)
-- [ ] Image optimization (WebP, dimensions, lazy load)
-- [ ] Bundle prune (unused deps)
-- [ ] Target bundle < 200KB gzip
-
----
-
-## Phase 8–10
-
-See `EDGEZENLABS_UI_UX_REVIEW.md` Section 19 (Roadmap) and Section 20 (Checklist).
+- [ ] Per-page JSON-LD
+- [ ] Absolute OG URLs
+- [ ] `BrowserRouter` migration
+- [ ] Sitemap
 
 ---
 
@@ -72,9 +75,5 @@ See `EDGEZENLABS_UI_UX_REVIEW.md` Section 19 (Roadmap) and Section 20 (Checklist
 
 | Phase | Commit | Date |
 |-------|--------|------|
-| 1 | `feat(design-system): Phase 1 foundation — tokens, dark mode, a11y base` | 2026-06-29 |
-| 2 | `feat(layout): Phase 2 global layout — nav, footer, PageLayout, legal` | 2026-06-29 |
-| 3 | `feat(home): Phase 3 home redesign — hero, trust, motion, no iframes` | 2026-06-29 |
-| 4 | `feat(pages): Phase 4 — align inner pages with design system` | 2026-06-29 |
-| 5 | `feat(components): Phase 5 — buttons, cards, forms, marketing primitives` | 2026-06-29 |
-| 6 | `feat(motion): Phase 6 — reveals, stat counters, page and nav transitions` | 2026-06-29 |
+| 1–6 | (see prior commits) | 2026-06-29 |
+| 7 | `perf: Phase 7 — code split, WebP images, bundle prune` | 2026-06-29 |

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import OptimizedImage from "@/components/OptimizedImage";
 import { featuredProducts } from "@/content/products";
+import { webpSource } from "@/lib/images";
 import Reveal from "@/components/marketing/Reveal";
 
 const HomeHero = () => {
@@ -108,18 +110,26 @@ const HomeHero = () => {
                   >
                     <div className="mb-6 flex flex-1 items-center justify-center rounded-2xl border border-border/60 bg-gradient-to-br from-secondary/50 to-background p-6">
                       {"mockup" in active && active.mockup ? (
-                        <img
+                        <OptimizedImage
                           src={active.mockup}
+                          webpSrc={webpSource(active.mockup)}
                           alt={`${active.name} app preview`}
-                          className="max-h-52 w-auto object-contain drop-shadow-xl"
+                          width={280}
+                          height={208}
                           loading="eager"
+                          fetchPriority="high"
+                          className="max-h-52 w-auto object-contain drop-shadow-xl"
                         />
                       ) : (
-                        <img
+                        <OptimizedImage
                           src={active.logo}
+                          webpSrc={webpSource(active.logo)}
                           alt={active.name}
-                          className="max-h-32 w-auto object-contain drop-shadow-lg"
+                          width={200}
+                          height={128}
                           loading="eager"
+                          fetchPriority="high"
+                          className="max-h-32 w-auto object-contain drop-shadow-lg"
                         />
                       )}
                     </div>

@@ -3,9 +3,11 @@ import { ArrowRight, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedStat from "@/components/motion/AnimatedStat";
 import StaggerReveal from "@/components/motion/StaggerReveal";
+import OptimizedImage from "@/components/OptimizedImage";
 import BrowserChrome from "@/components/marketing/BrowserChrome";
 import FeatureListItem from "@/components/marketing/FeatureListItem";
 import { caseStudy } from "@/content/home";
+import { webpSource } from "@/lib/images";
 import Reveal from "@/components/marketing/Reveal";
 
 const caseStudyFeatures = [
@@ -23,11 +25,14 @@ const CaseStudyPreview = () => (
           <div className="relative">
             <div className={`absolute -inset-4 rounded-3xl bg-gradient-to-br ${caseStudy.accent} blur-2xl`} />
             <BrowserChrome url="briktra.com" className="relative shadow-token-lg">
-              <img
+              <OptimizedImage
                 src={caseStudy.image}
+                webpSrc={webpSource(caseStudy.image)}
                 alt="Briktra mobile app interface"
-                className="w-full rounded-b-2xl object-cover"
+                width={640}
+                height={480}
                 loading="lazy"
+                className="w-full rounded-b-2xl object-cover"
               />
             </BrowserChrome>
           </div>

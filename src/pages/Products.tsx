@@ -6,8 +6,10 @@ import PageLayout from "@/components/layout/PageLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageCTA from "@/components/layout/PageCTA";
 import ProductDetailSection from "@/components/marketing/ProductDetailSection";
+import OptimizedImage from "@/components/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { productDetails, slugifyProduct } from "@/content/products-detail";
+import { webpSource } from "@/lib/images";
 
 const Products = () => {
   const location = useLocation();
@@ -70,11 +72,14 @@ const Products = () => {
                       <div
                         className={`flex h-14 w-16 shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br ${product.gradient} shadow-token-xs${product.name === "Briktra" ? " p-1" : " rounded-2xl p-2.5"}`}
                       >
-                        <img
+                        <OptimizedImage
                           src={product.logo}
+                          webpSrc={webpSource(product.logo)}
                           alt=""
-                          className={`max-h-10 w-auto object-contain opacity-85 drop-shadow-md${product.name === "Briktra" ? "" : " rounded-md"}`}
+                          width={64}
+                          height={40}
                           loading="lazy"
+                          className={`max-h-10 w-auto object-contain opacity-85 drop-shadow-md${product.name === "Briktra" ? "" : " rounded-md"}`}
                         />
                       </div>
                       <div className="min-w-0 flex-1">

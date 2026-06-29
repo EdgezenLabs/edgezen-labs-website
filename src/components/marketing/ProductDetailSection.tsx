@@ -1,9 +1,11 @@
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import OptimizedImage from "@/components/OptimizedImage";
 import FeatureListItem from "@/components/marketing/FeatureListItem";
 import Reveal from "@/components/marketing/Reveal";
 import { productDetails, slugifyProduct } from "@/content/products-detail";
+import { webpSource } from "@/lib/images";
 
 type Product = (typeof productDetails)[number];
 
@@ -44,11 +46,14 @@ const ProductDetailSection = ({ product, index }: ProductDetailSectionProps) => 
                 <div
                   className={`flex min-h-[280px] items-center justify-center rounded-2xl bg-gradient-to-br ${product.gradient} p-8 md:min-h-[320px]`}
                 >
-                  <img
+                  <OptimizedImage
                     src={product.logo}
+                    webpSrc={webpSource(product.logo)}
                     alt={product.name}
-                    className={`max-h-56 w-auto object-contain drop-shadow-lg ${isBriktra ? "" : "rounded-lg"}`}
+                    width={320}
+                    height={224}
                     loading="lazy"
+                    className={`max-h-56 w-auto object-contain drop-shadow-lg ${isBriktra ? "" : "rounded-lg"}`}
                   />
                 </div>
                 <div className="mt-4 grid grid-cols-3 gap-2">

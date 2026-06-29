@@ -18,7 +18,7 @@ const Footer = () => {
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="space-y-4 lg:col-span-2">
-            <img src={edgezenLogo} alt="EdgeZen Labs" className="h-10 w-auto" />
+            <img src={edgezenLogo} alt="EdgeZen Labs" width={120} height={40} className="h-10 w-auto" />
             <p className="max-w-sm text-sm leading-6 text-muted-foreground">
               Engineering digital excellence through mobile apps, web platforms, cloud systems, AI, and games.
             </p>

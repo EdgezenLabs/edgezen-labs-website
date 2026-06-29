@@ -25,11 +25,12 @@ import {
 } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 import SEO from "@/components/SEO";
+import OptimizedImage from "@/components/OptimizedImage";
 import Reveal from "@/components/marketing/Reveal";
+import { webpSource } from "@/lib/images";
 import { Button } from "@/components/ui/button";
 const briktraLogo = "/bricktra.jpg";
 const appMockup = "/briktra_app_mockup.png";
-const holographicIntel = "/holographic_intel.png";
 
 const platformFeatures = [
   {
@@ -261,7 +262,15 @@ const BriktraApp = () => {
               <div className="relative z-10 group max-w-md w-full">
                 <div className="absolute -inset-1 bg-gradient-to-r from-orange to-orange rounded-[3rem] blur-2xl opacity-10 group-hover:opacity-20 transition duration-1000"></div>
                 <div className="relative bg-white dark:bg-zinc-900/50 backdrop-blur-2xl rounded-[2.5rem] p-10 border border-white/40 dark:border-white/5 shadow-2xl hover:scale-[1.02] transition-transform duration-700">
-                  <img src={briktraLogo} alt="Briktra App" className="w-full h-auto object-contain rounded-2xl" />
+                  <OptimizedImage
+                    src={briktraLogo}
+                    alt="Briktra App"
+                    width={400}
+                    height={400}
+                    loading="eager"
+                    fetchPriority="high"
+                    className="w-full h-auto object-contain rounded-2xl"
+                  />
                 </div>
               </div>
             </Reveal>
@@ -320,7 +329,15 @@ const BriktraApp = () => {
 
               <div className="absolute inset-0 bg-orange/20 blur-[120px] rounded-full animate-pulse" />
               <div className="relative bg-white dark:bg-zinc-900 p-4 rounded-[3.5rem] shadow-2xl border border-white/20 overflow-hidden group">
-                <img src={appMockup} alt="Inside Briktra" className="w-full h-auto rounded-[3rem] group-hover:scale-105 transition-transform duration-1000" />
+                <OptimizedImage
+                  src={appMockup}
+                  webpSrc={webpSource(appMockup)}
+                  alt="Inside Briktra"
+                  width={480}
+                  height={960}
+                  loading="lazy"
+                  className="w-full h-auto rounded-[3rem] group-hover:scale-105 transition-transform duration-1000"
+                />
               </div>
             </div>
             <div className="order-1 lg:order-2 space-y-8 relative">

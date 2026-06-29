@@ -12,7 +12,7 @@
 |-------|--------|--------|
 | 1 | Design System Foundation | ✅ Complete |
 | 2 | Global Layout | ✅ Complete |
-| 3 | Home Page | ⏳ Pending |
+| 3 | Home Page | ✅ Complete |
 | 4 | Remaining Pages | ⏳ Pending |
 | 5 | Components | ⏳ Pending |
 | 6 | Motion | ⏳ Pending |
@@ -110,7 +110,33 @@
 
 ---
 
-## Phase 3 — Home Page (Next)
+## Phase 3 — Home Page ✅
+
+**Goal:** Premium hero, trust, testimonials, case study, no iframes, scroll motion.
+
+### Completed
+
+- [x] `HomeHero` — rotating featured product showcase (replaces fictional console)
+- [x] `LogoMarquee` — client/product trust bar
+- [x] `TrustIndicators` — honest stats + capability pillars
+- [x] `CaseStudyPreview` — Briktra featured work with metrics
+- [x] `ProductsShowcase` — full portfolio grid with scroll reveals
+- [x] `TestimonialsSection` — three client voice cards
+- [x] `WebsitePreviewCard` — gradient mockups (no iframes)
+- [x] `WebsitesSection` + mid-page `GlobalCTA`
+- [x] `Reveal` component (framer-motion + reduced motion)
+- [x] Centralized `src/content/home.ts` + `src/content/products.ts`
+- [x] Home page SEO via `SEO` component
+- [x] Marquee animation token in Tailwind
+
+### Verification
+
+- [x] `npm run build` passes
+- [x] `npm run lint` passes (0 errors)
+
+---
+
+## Phase 4 — Remaining Pages (Next)
 
 - [ ] Redesign Navbar (grouped IA, fewer top-level items)
 - [ ] Redesign Footer (legal links, social, newsletter)
@@ -144,4 +170,4 @@ See `EDGEZENLABS_UI_UX_REVIEW.md` Section 19 (Roadmap) and Section 20 (Checklist
 | Phase | Commit | Date |
 |-------|--------|------|
 | 1 | `feat(design-system): Phase 1 foundation — tokens, dark mode, a11y base` | 2026-06-29 |
-| 2 | `feat(layout): Phase 2 global layout — nav, footer, PageLayout, legal` | 2026-06-29 |
+| 3 | `feat(home): Phase 3 home redesign — hero, trust, motion, no iframes` | 2026-06-29 |

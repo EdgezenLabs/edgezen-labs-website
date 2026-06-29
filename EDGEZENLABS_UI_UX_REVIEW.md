@@ -1426,14 +1426,14 @@ src/
 - [ ] Redesign hero with product screenshots
 - [ ] Replace fictional "Product Studio Console" metaphor
 - [ ] Verify or remove statistics (100+/50+/10+)
-- [ ] Add client logo marquee below hero
+- [x] Add client logo marquee below hero
 - [ ] Reduce home products to 3 featured
-- [ ] Replace website iframes with screenshots
+- [x] Replace website iframes with screenshots
 - [ ] Fix website card link behavior (external vs internal)
-- [ ] Add mid-page CTA section
-- [ ] Add testimonials section
+- [x] Add mid-page CTA section
+- [x] Add testimonials section
 - [ ] Add FAQ accordion section
-- [ ] Add scroll-triggered animations
+- [x] Add scroll-triggered animations
 - [ ] Optimize hero min-height for laptops
 - [ ] Add structured data for Organization
 

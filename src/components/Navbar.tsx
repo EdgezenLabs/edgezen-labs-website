@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
+
 const edgezenLogo = "/ez.png";
 
 const Navbar = () => {
@@ -61,7 +63,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-3 md:flex">
+            <ThemeToggle />
             <Link to="/contact">
               <Button className="rounded-xl bg-foreground text-background shadow-lg shadow-foreground/10 transition-transform hover:scale-[1.03]">
                 Start a Project
@@ -70,20 +73,28 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="rounded-xl border border-border/70 bg-card/80 p-2 text-foreground shadow-sm backdrop-blur md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle navigation menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="rounded-xl border border-border/70 bg-card/80 p-2 text-foreground shadow-sm backdrop-blur"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
+            >
+              {isOpen ? <X size={24} aria-hidden /> : <Menu size={24} aria-hidden />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="border-t border-border/70 bg-background/95 backdrop-blur-xl md:hidden">
+        <div
+          id="mobile-navigation"
+          className="border-t border-border/70 bg-background/95 backdrop-blur-xl md:hidden"
+        >
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <Link

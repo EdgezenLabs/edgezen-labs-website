@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageMain from "@/components/PageMain";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -59,7 +60,8 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    let { name, value } = e.target;
+    const { name } = e.target;
+    let { value } = e.target;
 
     if (name === "phone") {
       if (/[^\d\s\-()+]/.test(value)) {
@@ -95,6 +97,7 @@ const Contact = () => {
     <div className="site-shell min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
+      <PageMain>
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute inset-0 mesh-grid opacity-30" />
@@ -224,6 +227,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      </PageMain>
 
       <Footer />
     </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageMain from "@/components/PageMain";
 import ProductCard from "@/components/ProductCard";
 
 const credosafeLogo = "/credo_logo.jpg";
@@ -101,6 +102,7 @@ const Index = () => {
     <div className="site-shell min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
+      <PageMain>
       <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute inset-0 mesh-grid opacity-40" />
@@ -328,6 +330,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      </PageMain>
 
       <Footer />
     </div>

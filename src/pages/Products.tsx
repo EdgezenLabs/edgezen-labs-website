@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageMain from "@/components/PageMain";
 import { Button } from "@/components/ui/button";
 
 const credosafeLogo = "/credo_logo.jpg";
@@ -161,6 +162,7 @@ const Products = () => {
     <div className="site-shell min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
+      <PageMain>
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute inset-0 mesh-grid opacity-30" />
@@ -315,6 +317,8 @@ const Products = () => {
           );
         })}
       </section>
+
+      </PageMain>
 
       <Footer />
     </div>

@@ -2,31 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* EdgeZen Labs Design System — Phase 1 tokens (HSL) */
 
 @layer base {
   :root {
+    /* ——— Color: surfaces ——— */
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 0 0% 7%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 0 0% 0%;
+    --primary: 0 0% 7%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary-foreground: 0 0% 7%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 42%;
 
-    --accent: 280 70% 60%;
+    --accent: 280 70% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,83 +33,177 @@ All colors MUST be HSL.
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 280 70% 60%;
+    --ring: 280 70% 58%;
 
-    --radius: 0.75rem;
+    /* ——— Brand gradients ——— */
+    --gradient-purple: 280 70% 58%;
+    --gradient-pink: 330 80% 62%;
+    --gradient-blue: 220 90% 58%;
 
-    /* EdgeZen Gradient Colors */
-    --gradient-purple: 280 70% 60%;
-    --gradient-pink: 330 80% 65%;
-    --gradient-blue: 220 90% 60%;
-    
-    /* Product Colors */
+    /* ——— Product accents ——— */
     --gold: 42 45% 60%;
     --orange: 16 77% 55%;
     --dark-gray: 0 0% 27%;
-    
-    /* Glass Effect */
-    --glass-bg: 0 0% 100% / 0.05;
-    --glass-border: 0 0% 100% / 0.1;
 
+    /* ——— Glass ——— */
+    --glass-bg: 0 0% 100% / 0.06;
+    --glass-border: 0 0% 100% / 0.12;
+
+    /* ——— Radius (8pt-aligned) ——— */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-2xl: 2rem;
+    --radius-full: 9999px;
+    --radius: var(--radius-md);
+
+    /* ——— Spacing scale (8pt) ——— */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+
+    --space-section-y: clamp(4rem, 8vw, 7rem);
+    --space-section-y-lg: clamp(5rem, 10vw, 8rem);
+    --space-card: 1.5rem;
+    --space-inline: clamp(1rem, 4vw, 2rem);
+
+    /* ——— Container widths ——— */
+    --container-narrow: 42rem;
+    --container-content: 72rem;
+    --container-wide: 80rem;
+    --container-max: 87.5rem;
+
+    /* ——— Typography ——— */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: var(--font-sans);
+
+    --text-hero: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    --text-h1: clamp(2.25rem, 4vw + 0.75rem, 4rem);
+    --text-h2: clamp(1.75rem, 3vw + 0.5rem, 3rem);
+    --text-h3: clamp(1.375rem, 2vw + 0.5rem, 1.75rem);
+    --text-body: clamp(1rem, 0.25vw + 0.95rem, 1.125rem);
+    --text-body-lg: clamp(1.0625rem, 0.5vw + 0.95rem, 1.25rem);
+    --text-small: 0.875rem;
+    --text-xs: 0.75rem;
+
+    --leading-tight: 1.15;
+    --leading-snug: 1.35;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.75;
+
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.12em;
+    --tracking-wider: 0.18em;
+
+    /* ——— Shadows ——— */
+    --shadow-xs: 0 1px 2px hsl(0 0% 0% / 0.04);
+    --shadow-sm: 0 1px 3px hsl(0 0% 0% / 0.06), 0 1px 2px hsl(0 0% 0% / 0.04);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.08);
+    --shadow-lg: 0 12px 32px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 20px 48px hsl(0 0% 0% / 0.12);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.15);
+    --shadow-inner-soft: inset 0 2px 8px hsl(0 0% 0% / 0.04);
+
+    /* ——— Motion ——— */
+    --duration-instant: 100ms;
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 400ms;
+    --duration-slower: 600ms;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ——— Component spacing ——— */
+    --btn-height-sm: 2.25rem;
+    --btn-height-md: 2.5rem;
+    --btn-height-lg: 3rem;
+    --btn-height-xl: 3.5rem;
+    --input-height: 3rem;
+    --nav-height: 4rem;
+    --nav-height-lg: 5rem;
+
+    /* ——— Sidebar (shadcn) ——— */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 26%;
-    --sidebar-primary: 0 0% 10%;
+    --sidebar-primary: 0 0% 7%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 7%;
     --sidebar-border: 0 0% 91%;
-    --sidebar-ring: 280 70% 60%;
+    --sidebar-ring: 280 70% 58%;
 
-    /* Briktra Specific */
+    /* ——— Briktra sub-brand ——— */
     --briktra-primary: 16 77% 55%;
     --briktra-primary-dark: 16 90% 40%;
-    --briktra-accent: 0 0% 10%;
+    --briktra-accent: 0 0% 7%;
     --briktra-secondary: 0 0% 98%;
-    --briktra-warm: 30 20% 97%; /* Warm Alabaster */
-    --briktra-navy: 222 47% 7%; /* Industrial Navy Charcoal */
+    --briktra-warm: 30 20% 97%;
+    --briktra-navy: 222 47% 7%;
+
+    color-scheme: light;
   }
 
   .dark {
-    --background: 0 0% 5%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 8%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 8%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 7%;
 
-    --secondary: 0 0% 12%;
+    --secondary: 0 0% 11%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 62%;
 
-    --accent: 280 70% 60%;
+    --accent: 280 65% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 280 70% 60%;
-    
-    /* Glass Effect - Dark */
-    --glass-bg: 0 0% 100% / 0.03;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 280 65% 65%;
+
+    --glass-bg: 0 0% 100% / 0.04;
     --glass-border: 0 0% 100% / 0.08;
 
-    --sidebar-background: 0 0% 10%;
+    --shadow-xs: 0 1px 2px hsl(0 0% 0% / 0.2);
+    --shadow-sm: 0 1px 3px hsl(0 0% 0% / 0.25);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.35);
+    --shadow-lg: 0 12px 32px hsl(0 0% 0% / 0.4);
+    --shadow-xl: 0 20px 48px hsl(0 0% 0% / 0.45);
+    --shadow-glow: 0 0 48px hsl(var(--accent) / 0.2);
+
+    --sidebar-background: 0 0% 8%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 280 70% 60%;
+    --sidebar-primary: 280 65% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent: 0 0% 14%;
     --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 280 70% 60%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 280 65% 65%;
+
+    color-scheme: dark;
   }
 }
 
@@ -119,13 +212,114 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-normal);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-semibold;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+  }
+
+  h1 {
+    font-size: var(--text-h1);
+  }
+
+  h2 {
+    font-size: var(--text-h2);
+  }
+
+  h3 {
+    font-size: var(--text-h3);
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  #main-content:focus {
+    outline: none;
+  }
+}
+
+@layer components {
+  .section-y {
+    padding-top: var(--space-section-y);
+    padding-bottom: var(--space-section-y);
+  }
+
+  .section-y-lg {
+    padding-top: var(--space-section-y-lg);
+    padding-bottom: var(--space-section-y-lg);
+  }
+
+  .container-narrow {
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+    padding-inline: var(--space-inline);
+  }
+
+  .container-content {
+    max-width: var(--container-content);
+    margin-inline: auto;
+    padding-inline: var(--space-inline);
+  }
+
+  .container-wide {
+    max-width: var(--container-wide);
+    margin-inline: auto;
+    padding-inline: var(--space-inline);
+  }
+
+  .text-hero {
+    font-size: var(--text-hero);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .text-body-lg {
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-relaxed);
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase text-accent;
+    letter-spacing: var(--tracking-wider);
+  }
+
+  .transition-default {
+    transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+    transition-duration: var(--duration-normal);
+    transition-timing-function: var(--ease-out);
   }
 }
 
@@ -153,15 +347,16 @@ All colors MUST be HSL.
   }
 
   .gradient-border::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, 
-      hsl(var(--gradient-purple)), 
-      hsl(var(--gradient-pink)), 
+    background: linear-gradient(
+      90deg,
+      hsl(var(--gradient-purple)),
+      hsl(var(--gradient-pink)),
       hsl(var(--gradient-blue))
     );
   }
@@ -176,7 +371,7 @@ All colors MUST be HSL.
     background: hsla(0, 0%, 100%, 0.8);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(16, 77, 55, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(16, 77, 55, 0.05);
+    box-shadow: var(--shadow-md);
   }
 
   .dark .briktra-glass {
@@ -185,8 +380,11 @@ All colors MUST be HSL.
   }
 
   .grid-pattern {
-    background-image: 
-      radial-gradient(circle at 2px 2px, hsl(var(--briktra-primary) / 0.05) 1px, transparent 0);
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      hsl(var(--briktra-primary) / 0.05) 1px,
+      transparent 0
+    );
     background-size: 40px 40px;
   }
 
@@ -199,7 +397,7 @@ All colors MUST be HSL.
   }
 
   .mesh-grid {
-    background-image: 
+    background-image:
       linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
     background-size: 60px 60px;
@@ -236,26 +434,55 @@ All colors MUST be HSL.
     width: 34rem;
     height: 34rem;
     pointer-events: none;
-    border-radius: 9999px;
+    border-radius: var(--radius-full);
     background: hsl(var(--gradient-blue) / 0.08);
     filter: blur(90px);
   }
 
+  .shadow-token-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-token-md {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-token-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-token-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 6s var(--ease-in-out) infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s var(--ease-in-out) infinite alternate;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 4s var(--ease-in-out) infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in var(--duration-slow) var(--ease-out) both;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up var(--duration-slow) var(--ease-out) both;
   }
 
   @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
+    0%,
+    100% {
+      transform: translateY(0);
     }
     50% {
       transform: translateY(-20px);
     }
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
   }
 
   @keyframes glow {
@@ -267,16 +494,33 @@ All colors MUST be HSL.
     }
   }
 
-  .animate-bounce-slow {
-    animation: bounce-slow 4s ease-in-out infinite;
-  }
-
   @keyframes bounce-slow {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
       transform: translateY(-15px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }

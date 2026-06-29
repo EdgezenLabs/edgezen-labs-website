@@ -1,6 +1,7 @@
 import { Brain, Cloud, Code2, Database, Gamepad2, Layers3, Palette, Smartphone, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageMain from "@/components/PageMain";
 
 const techStack = [
   {
@@ -58,6 +59,7 @@ const Technologies = () => {
     <div className="site-shell min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
+      <PageMain>
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute inset-0 mesh-grid opacity-30" />
@@ -138,6 +140,8 @@ const Technologies = () => {
           </div>
         </div>
       </section>
+
+      </PageMain>
 
       <Footer />
     </div>

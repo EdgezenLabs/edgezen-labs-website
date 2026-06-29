@@ -28,9 +28,11 @@ import SEO from "@/components/SEO";
 import OptimizedImage from "@/components/OptimizedImage";
 import Reveal from "@/components/marketing/Reveal";
 import { webpSource } from "@/lib/images";
+import { productAssets } from "@/lib/assets";
 import { Button } from "@/components/ui/button";
-const briktraLogo = "/bricktra.jpg";
-const appMockup = "/briktra_app_mockup.png";
+
+const briktraLogo = productAssets.briktra.src;
+const appMockup = productAssets.briktraMockup.src;
 
 const platformFeatures = [
   {

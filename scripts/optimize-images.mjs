@@ -1,5 +1,5 @@
 /**
- * Converts large PNG assets in public/ to WebP.
+ * Converts large PNG/JPEG assets in public/ to WebP.
  * Run: node scripts/optimize-images.mjs
  */
 import { existsSync, statSync } from "node:fs";
@@ -9,11 +9,17 @@ import sharp from "sharp";
 const publicDir = join(process.cwd(), "public");
 
 const targets = [
+  { file: "credo_logo.jpg", quality: 85 },
+  { file: "bricktra.jpg", quality: 85 },
+  { file: "maintzen_logo_accurate.png", quality: 85 },
   { file: "expeniqo-logo.png", quality: 85 },
   { file: "cardclash.png", quality: 85 },
   { file: "gstledger-logo.png", quality: 85 },
   { file: "briktra_app_mockup.png", quality: 82 },
   { file: "edgezen-logo-cropped.png", quality: 80, width: 512 },
+  { file: "website-previews/vs-corporate-lending.png", quality: 82 },
+  { file: "website-previews/eladent-consulting.png", quality: 82 },
+  { file: "website-previews/gabriel-jm-events.png", quality: 82 },
 ];
 
 for (const { file, quality, width } of targets) {

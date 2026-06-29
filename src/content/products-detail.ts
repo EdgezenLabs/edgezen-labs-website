@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { BadgeCheck, HardHat, Shield, Swords, TrendingUp, Wrench } from "lucide-react";
+import { productAssets } from "@/lib/assets";
 
 export const productDetails: {
   name: string;
@@ -19,7 +20,7 @@ export const productDetails: {
     tagline: "Loan Processing ERP",
     description:
       "Complete loan processing and ERP system designed for financial institutions. Manage the entire loan lifecycle from application to disbursal with our mobile-first platform.",
-    logo: "/credo_logo.jpg",
+    logo: productAssets.credosafe.src,
     icon: Shield,
     color: "text-gold",
     gradient: "from-yellow-500/20 via-amber-500/10 to-orange-500/20",
@@ -40,7 +41,7 @@ export const productDetails: {
     tagline: "Construction ERP",
     description:
       "Mobile-first ERP for construction and contractors. Built for the field with advanced billing, multilingual support, and super lightweight performance.",
-    logo: "/bricktra.jpg",
+    logo: productAssets.briktra.src,
     icon: HardHat,
     color: "text-orange",
     gradient: "from-orange-500/20 via-red-500/10 to-yellow-500/20",
@@ -62,7 +63,7 @@ export const productDetails: {
     tagline: "AI Expense Tracker",
     description:
       "Smart expense tracker powered by AI. Automatically reads SMS messages, identifies transactions, categorizes spending, and generates actionable insights.",
-    logo: "/expeniqo-logo.png",
+    logo: productAssets.expeniqo.src,
     icon: TrendingUp,
     color: "text-gold",
     gradient: "from-violet-500/20 via-pink-500/10 to-yellow-500/20",
@@ -83,7 +84,7 @@ export const productDetails: {
     tagline: "Strategy Card Battle Game",
     description:
       "A competitive mobile fantasy card-battle game where players build powerful decks, collect unique legendary cards, and compete in strategic arena battles.",
-    logo: "/cardclash.png",
+    logo: productAssets.cardclash.src,
     icon: Swords,
     color: "gradient-text",
     gradient: "from-purple-500/20 via-fuchsia-500/10 to-blue-500/20",
@@ -105,7 +106,7 @@ export const productDetails: {
     tagline: "Field Service Management",
     description:
       "Specialized field service management for RO water purifier companies. Streamline your entire service lifecycle from agreement signing to technician dispatch.",
-    logo: "/maintzen_logo_accurate.png",
+    logo: productAssets.maintzen.src,
     icon: Wrench,
     color: "text-blue-600",
     gradient: "from-blue-500/20 via-cyan-500/10 to-emerald-500/20",
@@ -126,7 +127,7 @@ export const productDetails: {
     tagline: "Enterprise GST Suite",
     description:
       "Precision invoicing, smarter inventory, and seamless GST compliance. An all-in-one business management suite designed for high-speed POS and multi-warehouse operations.",
-    logo: "/gstledger-logo.png",
+    logo: productAssets.gstledger.src,
     icon: BadgeCheck,
     color: "text-emerald-600",
     gradient: "from-emerald-600/20 via-green-500/10 to-teal-400/20",

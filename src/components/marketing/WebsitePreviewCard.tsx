@@ -25,7 +25,7 @@ const WebsitePreviewCard = ({ site, index }: WebsitePreviewCardProps) => (
       <WebsiteBrowserPreview
         url={site.url}
         screenshot={site.screenshot}
-        alt={`${site.name} website preview`}
+        alt={site.screenshotAlt ?? `${site.name} website preview`}
         className="relative z-[1] w-full max-w-full shadow-token-lg"
       />
       <div className="absolute bottom-4 right-4 z-[2] flex h-9 w-9 items-center justify-center rounded-full bg-background/90 text-muted-foreground opacity-0 shadow-token-sm transition-default group-hover:opacity-100">

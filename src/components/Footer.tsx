@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { brandAssets } from "@/lib/assets";
 import GlobalCTA from "@/components/layout/GlobalCTA";
 import { footerCompanyLinks, footerLegalLinks, productLinks } from "@/content/navigation";
 
-const edgezenLogo = "/ez.png";
+const edgezenLogo = brandAssets.logo;
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

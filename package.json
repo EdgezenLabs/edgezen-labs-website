@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.mjs && vite build",
+    "build": "node scripts/generate-sitemap.mjs && node scripts/audit-assets.mjs && vite build && node scripts/audit-assets.mjs --dist",
     "optimize-images": "node scripts/optimize-images.mjs",
     "generate-favicons": "node scripts/generate-favicons.mjs",
+    "audit-assets": "node scripts/audit-assets.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"

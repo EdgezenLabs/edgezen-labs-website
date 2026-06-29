@@ -1,10 +1,12 @@
+import { productAssets } from "@/lib/assets";
+
 export const products = [
   {
     name: "CredoSafe",
     eyebrow: "Fintech ERP",
     description:
       "Complete loan processing & ERP system. Mobile-first platform managing applications, verifications, credit checks, approvals & disbursals.",
-    logo: "/credo_logo.jpg",
+    logo: productAssets.credosafe.src,
     color: "text-gold",
     link: "/products#credosafe",
   },
@@ -13,8 +15,8 @@ export const products = [
     eyebrow: "Construction ERP",
     description:
       "Construction & Contractor ERP. Field-optimized mobile platform for projects, labour, materials, vendors. Offline-first & multilingual.",
-    logo: "/bricktra.jpg",
-    mockup: "/briktra_app_mockup.png",
+    logo: productAssets.briktra.src,
+    mockup: productAssets.briktraMockup.src,
     color: "text-orange",
     link: "/briktra-app",
   },
@@ -23,7 +25,7 @@ export const products = [
     eyebrow: "Finance AI",
     description:
       "Smart AI-powered expense tracker. Automatically reads SMS, identifies transactions, categorizes spending, and generates insights.",
-    logo: "/expeniqo-logo.png",
+    logo: productAssets.expeniqo.src,
     color: "text-gold",
     link: "/products#expeniqo",
   },
@@ -32,7 +34,7 @@ export const products = [
     eyebrow: "Mobile Game",
     description:
       "A fantasy mobile card battle experience where players build decks, unlock legendary cards, and compete through strategy-driven arena gameplay.",
-    logo: "/cardclash.png",
+    logo: productAssets.cardclash.src,
     color: "gradient-text",
     link: "/products#clashcard-legends-arena",
   },
@@ -41,7 +43,7 @@ export const products = [
     eyebrow: "Field Service",
     description:
       "Specialized field service management for RO water purifier companies. Manage agreements, schedules, and technicians with real-time field reporting.",
-    logo: "/maintzen_logo_accurate.png",
+    logo: productAssets.maintzen.src,
     color: "text-blue-500",
     link: "/products#maintzen",
   },
@@ -50,7 +52,7 @@ export const products = [
     eyebrow: "Enterprise GST Suite",
     description:
       "Precision invoicing, smarter inventory, and seamless GST compliance. All-in-one business management for high-speed POS & multi-warehouse operations.",
-    logo: "/gstledger-logo.png",
+    logo: productAssets.gstledger.src,
     color: "text-emerald-600",
     link: "/products#gstledger-pro",
   },

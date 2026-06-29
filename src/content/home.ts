@@ -1,3 +1,5 @@
+import { productAssets } from "@/lib/assets";
+
 export const clientLogos = [
   { name: "VS Corporate Lending", industry: "Finance" },
   { name: "Eladent Consulting", industry: "Healthcare RCM" },
@@ -58,7 +60,7 @@ export const caseStudy = {
   ],
   href: "/briktra-app",
   cta: "Explore Briktra",
-  image: "/briktra_app_mockup.png",
+  image: productAssets.briktraMockup.src,
   accent: "from-orange-500/20 via-red-500/10 to-amber-500/20",
 } as const;
 

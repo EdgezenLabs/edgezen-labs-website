@@ -21,9 +21,10 @@ import {
 } from "@/components/ui/sheet";
 import MobileNavMenu from "@/components/layout/MobileNavMenu";
 import { primaryNavLinks, productLinks } from "@/content/navigation";
+import { brandAssets } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 
-const edgezenLogo = "/ez.png";
+const edgezenLogo = brandAssets.logo;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

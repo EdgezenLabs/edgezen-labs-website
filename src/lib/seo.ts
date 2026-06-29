@@ -1,6 +1,8 @@
+import { brandAssets } from "./assets";
+
 export const SITE_URL = "https://edgezenlabs.com";
 
-export const DEFAULT_OG_IMAGE = "/ez.png";
+export const DEFAULT_OG_IMAGE = brandAssets.logo;
 
 export const SITEMAP_ROUTES: Array<{
   path: string;

@@ -28,9 +28,9 @@ const Websites = () => (
       align="center"
     />
 
-    <section className="pb-section-y">
+    <section className="overflow-x-hidden pb-section-y">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8">
+        <div className="grid min-w-0 gap-8">
           {websiteShowcases.map((site, index) => (
             <WebsiteShowcaseCard key={site.name} site={site} index={index} />
           ))}

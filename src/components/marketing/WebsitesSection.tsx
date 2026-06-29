@@ -25,7 +25,7 @@ const WebsitesSection = () => (
           </Link>
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid min-w-0 gap-6 md:grid-cols-3">
           {websites.map((site, index) => (
             <Reveal key={site.name} delay={index * 0.08}>
               <WebsitePreviewCard site={site} index={index} />

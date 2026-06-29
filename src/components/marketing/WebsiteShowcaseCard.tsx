@@ -15,31 +15,39 @@ interface WebsiteShowcaseCardProps {
 }
 
 const WebsiteShowcaseCard = ({ site, index }: WebsiteShowcaseCardProps) => (
-  <Reveal delay={index * 0.08}>
-    <MarketingCard as="article" padding="none" interactive className="group overflow-hidden rounded-3xl">
-      <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
-        <a
-          href={site.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative block overflow-hidden border-b border-border/70 p-4 md:p-6 lg:min-h-[360px] lg:border-b-0 lg:border-r"
-          aria-label={`Visit ${site.name}`}
-        >
-          <div className={`absolute inset-0 bg-gradient-to-br ${site.previewGradient} opacity-40`} aria-hidden />
-          <div className="relative">
+  <Reveal delay={index * 0.08} direction="none" className="overflow-hidden">
+    <MarketingCard
+      as="article"
+      padding="none"
+      interactive={false}
+      className="group relative isolate overflow-hidden rounded-3xl"
+    >
+      <div className="grid min-w-0 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative min-w-0 overflow-hidden border-b border-border/70 lg:border-b-0 lg:border-r">
+          <a
+            href={site.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative block overflow-hidden p-4 md:p-6"
+            aria-label={`Visit ${site.name}`}
+          >
+            <div
+              className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${site.previewGradient} opacity-40`}
+              aria-hidden
+            />
             <WebsiteBrowserPreview
               url={site.url}
               screenshot={site.screenshot}
               alt={`${site.name} website preview`}
-              viewportClassName="h-[240px] sm:h-[280px] md:h-[320px] lg:h-[360px]"
+              className="relative z-[1] w-full max-w-full"
             />
-          </div>
-          <div className="absolute bottom-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-background/90 opacity-0 shadow-token-sm transition-default group-hover:opacity-100">
-            <ExternalLink size={16} aria-hidden />
-          </div>
-        </a>
+            <div className="absolute bottom-4 right-4 z-[2] flex h-10 w-10 items-center justify-center rounded-full bg-background/90 opacity-0 shadow-token-sm transition-default group-hover:opacity-100">
+              <ExternalLink size={16} aria-hidden />
+            </div>
+          </a>
+        </div>
 
-        <div className="flex flex-col justify-between gap-8 p-7 md:p-10">
+        <div className="flex min-w-0 flex-col justify-between gap-8 p-7 md:p-10">
           <div>
             <div className="mb-4 flex flex-wrap items-center gap-3">
               <Badge variant="accent" className="text-[10px] uppercase tracking-wider">

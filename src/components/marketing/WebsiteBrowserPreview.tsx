@@ -19,19 +19,24 @@ const WebsiteBrowserPreview = ({
 }: WebsiteBrowserPreviewProps) => (
   <div
     className={cn(
-      "overflow-hidden rounded-2xl border border-border/70 bg-background shadow-token-xl",
+      "w-full min-w-0 max-w-full overflow-hidden rounded-2xl border border-border/70 bg-background shadow-token-lg",
       className,
     )}
   >
     <div className="flex items-center gap-2 border-b border-border/70 bg-card px-4 py-3">
-      <span className="h-2.5 w-2.5 rounded-full bg-red-400" aria-hidden />
-      <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" aria-hidden />
-      <span className="h-2.5 w-2.5 rounded-full bg-green-400" aria-hidden />
-      <span className="ml-2 truncate rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground">
+      <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-red-400" aria-hidden />
+      <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-yellow-400" aria-hidden />
+      <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-green-400" aria-hidden />
+      <span className="ml-2 min-w-0 truncate rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground">
         {url}
       </span>
     </div>
-    <div className={cn("relative overflow-hidden bg-background", viewportClassName ?? "aspect-[16/10]")}>
+    <div
+      className={cn(
+        "relative w-full min-w-0 overflow-hidden bg-background",
+        viewportClassName ?? "aspect-[16/10]",
+      )}
+    >
       <OptimizedImage
         src={screenshot}
         webpSrc={webpSource(screenshot)}
@@ -39,7 +44,7 @@ const WebsiteBrowserPreview = ({
         width={1440}
         height={810}
         loading="lazy"
-        className="h-full w-full object-cover object-top"
+        className="absolute inset-0 h-full w-full object-cover object-top"
       />
     </div>
   </div>

@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
 import PageLayout from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -14,6 +15,12 @@ const NotFound = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title="Page Not Found"
+        description="The page you are looking for does not exist or may have moved."
+        canonical={`https://edgezenlabs.com${location.pathname}`}
+        noindex
+      />
       <div className="flex min-h-[60vh] items-center justify-center px-4">
         <div className="text-center">
           <p className="eyebrow mb-4">404</p>

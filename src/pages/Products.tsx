@@ -60,13 +60,16 @@ const Products = () => {
                 {productDetails.map((product, index) => {
                   const id = slugifyProduct(product.name);
                   return (
-                    <a
+                    <Link
                       key={product.name}
-                      href={`#/products#${id}`}
+                      to={`/products#${id}`}
                       className="group flex items-center gap-4 rounded-2xl border border-border/50 bg-background/70 p-4 transition-default hover:border-accent/20 hover:shadow-token-sm"
                       onClick={(e) => {
-                        e.preventDefault();
-                        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                        if (location.pathname === "/products") {
+                          e.preventDefault();
+                          document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                          window.history.replaceState(null, "", `/products#${id}`);
+                        }
                       }}
                     >
                       <div
@@ -87,7 +90,7 @@ const Products = () => {
                         <p className="text-sm text-muted-foreground">{product.tagline}</p>
                       </div>
                       <span className="text-xs font-semibold text-muted-foreground">0{index + 1}</span>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>

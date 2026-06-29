@@ -27,7 +27,7 @@
 
   <meta property="og:type" content="website" />
 
-  <meta property="og:image" content="/ez.png" />
+  <meta property="og:image" content="https://edgezenlabs.com/ez.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -37,7 +37,23 @@
 
   <meta name="twitter:description" content="Building intelligent, beautiful, and scalable digital products" />
 
-  <meta name="twitter:image" content="/ez.png" />
+  <meta name="twitter:image" content="https://edgezenlabs.com/ez.png" />
+
+  <!-- GitHub Pages SPA redirect recovery (see public/404.html) -->
+  <script>
+    (function (l) {
+      if (l.search[1] === "/") {
+        var decoded = l.search
+          .slice(1)
+          .split("&")
+          .map(function (s) {
+            return s.replace(/~and~/g, "&");
+          })
+          .join("?");
+        window.history.replaceState(null, null, l.pathname + decoded.slice(1) + l.hash);
+      }
+    })(window.location);
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
 

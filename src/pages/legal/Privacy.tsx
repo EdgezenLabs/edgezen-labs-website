@@ -1,9 +1,15 @@
+import SEO from "@/components/SEO";
 import PageLayout from "@/components/layout/PageLayout";
 import SectionHeader from "@/components/layout/SectionHeader";
 import Reveal from "@/components/marketing/Reveal";
 
 const Privacy = () => (
   <PageLayout showBreadcrumbs>
+    <SEO
+      title="Privacy Policy"
+      description="How EdgeZen Labs collects, uses, and protects your information when you use our website and contact forms."
+      canonical="https://edgezenlabs.com/legal/privacy"
+    />
     <section className="section-y">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-narrow">

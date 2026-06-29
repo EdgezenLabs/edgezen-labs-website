@@ -4,7 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import SkipLink from "@/components/SkipLink";
 import PageLoader from "@/components/PageLoader";
-import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import SiteStructuredData from "@/components/SiteStructuredData";
 
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
@@ -37,7 +38,8 @@ const App = () => (
     <TooltipProvider>
       <SkipLink />
       <Sonner />
-      <HashRouter>
+      <BrowserRouter>
+        <SiteStructuredData />
         <ScrollToTop />
         <Suspense fallback={<PageLoader />}>
           <Routes>
@@ -54,7 +56,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-      </HashRouter>
+      </BrowserRouter>
     </TooltipProvider>
   </ThemeProvider>
 );

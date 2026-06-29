@@ -1,9 +1,15 @@
+import SEO from "@/components/SEO";
 import PageLayout from "@/components/layout/PageLayout";
 import SectionHeader from "@/components/layout/SectionHeader";
 import Reveal from "@/components/marketing/Reveal";
 
 const Terms = () => (
   <PageLayout showBreadcrumbs>
+    <SEO
+      title="Terms of Service"
+      description="Terms governing use of the EdgeZen Labs website, communications, and intellectual property."
+      canonical="https://edgezenlabs.com/legal/terms"
+    />
     <section className="section-y">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-narrow">

@@ -17,7 +17,7 @@
 | 5 | Components | ✅ Complete |
 | 6 | Motion | ✅ Complete |
 | 7 | Performance | ✅ Complete |
-| 8 | SEO | ⏳ Pending |
+| 8 | SEO | ✅ Complete |
 | 9 | Accessibility | ⏳ Pending |
 | 10 | Final Polish | ⏳ Pending |
 
@@ -62,12 +62,35 @@
 
 ---
 
-## Phase 8 — SEO (Next)
+## Phase 8 — SEO ✅
 
-- [ ] Per-page JSON-LD
-- [ ] Absolute OG URLs
-- [ ] `BrowserRouter` migration
-- [ ] Sitemap
+**Goal:** Clean URLs, structured data, crawlability, and social meta.
+
+### Completed
+
+- [x] `HashRouter` → `BrowserRouter` with GitHub Pages SPA fallback (`public/404.html` + `index.html` recovery script)
+- [x] `src/lib/seo.ts` — `SITE_URL`, `absoluteUrl`, JSON-LD schema builders
+- [x] `SEO.tsx` — absolute canonical/OG/Twitter URLs, per-page `WebPage` JSON-LD, `noindex` support
+- [x] `SiteStructuredData` — global `Organization` + `WebSite` JSON-LD in app shell
+- [x] SEO added to Privacy, Terms, NotFound (`noindex` on 404)
+- [x] `scripts/generate-sitemap.mjs` — runs before build; `public/sitemap.xml`
+- [x] `robots.txt` — `Sitemap:` directive
+- [x] Products sidebar links fixed (`/products#slug` via `Link`)
+- [x] Static `index.html` OG/Twitter images use absolute URLs
+
+### Files Changed
+
+- `src/App.tsx`, `src/components/SEO.tsx`, `src/components/SiteStructuredData.tsx`, `src/lib/seo.ts`
+- `src/pages/Products.tsx`, `src/pages/NotFound.tsx`, `src/pages/legal/Privacy.tsx`, `src/pages/legal/Terms.tsx`
+- `index.html`, `public/404.html`, `public/robots.txt`, `public/sitemap.xml`
+- `scripts/generate-sitemap.mjs`, `package.json`
+- Removed legacy root `404.html` (replaced by `public/404.html` copied to `dist`)
+
+---
+
+## Phase 9 — Accessibility (Next)
+
+- [ ] WCAG 2.2 AA audit and fixes
 
 ---
 
@@ -77,3 +100,4 @@
 |-------|--------|------|
 | 1–6 | (see prior commits) | 2026-06-29 |
 | 7 | `perf: Phase 7 — code split, WebP images, bundle prune` | 2026-06-29 |
+| 8 | `feat(seo): Phase 8 — BrowserRouter, JSON-LD, sitemap` | 2026-06-29 |

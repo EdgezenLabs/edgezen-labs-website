@@ -18,7 +18,7 @@
 | 6 | Motion | ✅ Complete |
 | 7 | Performance | ✅ Complete |
 | 8 | SEO | ✅ Complete |
-| 9 | Accessibility | ⏳ Pending |
+| 9 | Accessibility | ⏭ Skipped |
 | 10 | Final Polish | ⏳ Pending |
 
 ---
@@ -88,7 +88,13 @@
 
 ---
 
-## Phase 9 — Accessibility (Next)
+## Hotfix — Production blank screen (post Phase 8)
+
+**Root cause:** `manualChunks` isolated `react-helmet-async` into a `helmet` chunk with a circular init dependency → `ReferenceError: Cannot access 'f' before initialization` — blank page on production build.
+
+**Fix:** Removed helmet from `manualChunks` in `vite.config.ts`. All 11 routes verified locally via production preview.
+
+---
 
 - [ ] WCAG 2.2 AA audit and fixes
 

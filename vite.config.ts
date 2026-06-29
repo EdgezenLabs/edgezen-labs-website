@@ -50,10 +50,6 @@ export default defineConfig(({ mode }) => ({
           if (id.includes("lucide-react")) {
             return "icons";
           }
-
-          if (id.includes("react-helmet-async")) {
-            return "helmet";
-          }
         },
       },
     },

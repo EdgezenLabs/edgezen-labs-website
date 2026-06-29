@@ -62,35 +62,4 @@ export const caseStudy = {
   accent: "from-orange-500/20 via-red-500/10 to-amber-500/20",
 } as const;
 
-export const websites = [
-  {
-    name: "VS Corporate Lending",
-    url: "vscorporatelending.com",
-    href: "https://vscorporatelending.com/",
-    industry: "Finance",
-    headline: "Unsecured business loans made simple",
-    description: "A focused lending website for banks, NBFCs, and growing business borrowers.",
-    accent: "from-emerald-500/25 to-blue-500/20",
-    previewGradient: "from-emerald-600/30 via-teal-500/20 to-blue-600/30",
-  },
-  {
-    name: "Eladent Consulting",
-    url: "eladentconsulting.com",
-    href: "https://eladentconsulting.com/",
-    industry: "Dental RCM",
-    headline: "Dental billing and RCM experts",
-    description: "A clean consulting presence built around trust, clarity, and revenue operations.",
-    accent: "from-cyan-500/25 to-violet-500/20",
-    previewGradient: "from-cyan-500/30 via-sky-400/20 to-violet-500/30",
-  },
-  {
-    name: "Gabriel JM Events",
-    url: "gabrieljmevents.com",
-    href: "https://gabrieljmevents.com/",
-    industry: "Events",
-    headline: "Premier events in Chennai",
-    description: "A vibrant event management website for services, inquiries, and brand presence.",
-    accent: "from-rose-500/25 to-amber-500/20",
-    previewGradient: "from-rose-500/30 via-orange-400/20 to-amber-500/30",
-  },
-] as const;
+export { homeWebsites as websites } from "@/content/websites";

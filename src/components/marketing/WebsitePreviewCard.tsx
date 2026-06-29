@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react";
-import type { websites } from "@/content/home";
+import type { homeWebsites } from "@/content/websites";
 
-type Website = (typeof websites)[number];
+type Website = (typeof homeWebsites)[number];
 
 interface WebsitePreviewCardProps {
   site: Website;

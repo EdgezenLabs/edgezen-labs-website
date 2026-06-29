@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 import SEO from "@/components/SEO";
+import Reveal from "@/components/marketing/Reveal";
 import { Button } from "@/components/ui/button";
 const briktraLogo = "/bricktra.jpg";
 const appMockup = "/briktra_app_mockup.png";
@@ -210,7 +211,7 @@ const BriktraApp = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
-            <div className="space-y-8 max-w-5xl relative">
+            <Reveal className="space-y-8 max-w-5xl relative">
               <div className="inline-flex items-center space-x-2 bg-orange/5 border border-orange/10 rounded-full px-4 py-2 animate-fade-in shadow-sm">
                 <HardHat size={16} className="text-orange" />
                 <span className="text-xs text-orange font-bold tracking-[0.15em] uppercase">Mobile-First Construction ERP</span>
@@ -238,8 +239,8 @@ const BriktraApp = () => {
               </div>
               
 
-            </div>
-            <div className="relative flex justify-center lg:justify-end">
+            </Reveal>
+            <Reveal delay={0.12} className="relative flex justify-center lg:justify-end">
               <div className="absolute -top-20 -right-20 w-80 h-80 bg-orange/10 rounded-full blur-[100px] animate-float" />
               <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-orange/5 rounded-full blur-[100px] animate-float" style={{ animationDelay: "2s" }} />
               
@@ -263,7 +264,7 @@ const BriktraApp = () => {
                   <img src={briktraLogo} alt="Briktra App" className="w-full h-auto object-contain rounded-2xl" />
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
         
@@ -284,13 +285,15 @@ const BriktraApp = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {platformFeatures.map((feature, i) => (
-              <div key={i} className="bg-white dark:bg-zinc-900 p-10 rounded-[3rem] shadow-sm border border-border/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+              <Reveal key={i} delay={i * 0.08}>
+              <div className="bg-white dark:bg-zinc-900 p-10 rounded-[3rem] shadow-sm border border-border/40 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group h-full">
                 <div className={`h-16 w-16 rounded-2xl ${feature.color} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
                   <feature.icon size={32} />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed font-light">{feature.description}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

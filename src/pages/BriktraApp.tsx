@@ -23,9 +23,7 @@ import {
   Fingerprint,
   Star
 } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import PageMain from "@/components/PageMain";
+import PageLayout from "@/components/layout/PageLayout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 const briktraLogo = "/bricktra.jpg";
@@ -176,16 +174,14 @@ const BriktraApp = () => {
   const [hoveredModule, setHoveredModule] = useState<string | null>(null);
 
   return (
-    <div className="site-shell min-h-screen overflow-x-hidden bg-background">
-      <SEO 
+    <>
+      <SEO
         title="Briktra | Mobile-First ERP for Construction"
         description="Transform your construction operations with Briktra. The leading mobile-first ERP for project, labour, and material management with GPS attendance and offline support."
         keywords="Construction ERP, GPS Attendance, Project Management India, Contractor Software, Briktra App"
         canonical="https://edgezenlabs.com/briktra-app"
       />
-      <Navbar />
-
-      <PageMain>
+      <PageLayout showBreadcrumbs>
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-white dark:bg-black">
         {/* Architectural Blueprint Background & Floating Icons */}
@@ -560,11 +556,8 @@ const BriktraApp = () => {
           </div>
         </div>
       </section>
-
-      </PageMain>
-
-      <Footer />
-    </div>
+      </PageLayout>
+    </>
   );
 };
 

@@ -1,8 +1,6 @@
 import { ArrowRight, Brain, CheckCircle2, Cloud, Code, Gamepad2, Globe, Palette, Settings, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import PageMain from "@/components/PageMain";
+import PageLayout from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -66,10 +64,7 @@ const process = [
 
 const Services = () => {
   return (
-    <div className="site-shell min-h-screen overflow-x-hidden bg-background">
-      <Navbar />
-
-      <PageMain>
+    <PageLayout showBreadcrumbs>
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute inset-0 mesh-grid opacity-30" />
@@ -161,11 +156,7 @@ const Services = () => {
           </div>
         </div>
       </section>
-
-      </PageMain>
-
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -1,124 +1,210 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { primaryNavLinks, productLinks } from "@/content/navigation";
+import { cn } from "@/lib/utils";
 
 const edgezenLogo = "/ez.png";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Products", path: "/products" },
-    { name: "Websites", path: "/websites" },
-    { name: "Briktra App", path: "/briktra-app" },
-    { name: "Technologies", path: "/technologies" },
-    { name: "Contact", path: "/contact" },
-  ];
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  const isActive = (path: string) => location.pathname === path;
+  const isProductsActive =
+    location.pathname === "/products" ||
+    location.pathname === "/briktra-app" ||
+    location.pathname.startsWith("/products");
+
+  const navLinkClass = (active: boolean) =>
+    cn(
+      "rounded-lg px-3 py-2 text-sm font-medium transition-default",
+      active
+        ? "bg-foreground text-background shadow-token-sm"
+        : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+    );
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-border/70 bg-background/85 shadow-sm backdrop-blur-xl" : "bg-transparent"
-      }`}
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-default",
+        scrolled
+          ? "border-b border-border/70 bg-background/90 shadow-token-sm backdrop-blur-xl"
+          : "bg-transparent",
+      )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center space-x-3 group">
+        <div className="flex h-nav items-center justify-between gap-4 lg:h-nav-lg">
+          <Link to="/" className="group flex shrink-0 items-center gap-3">
             <img
               src={edgezenLogo}
               alt="EdgeZen Labs"
-              className="h-8 md:h-10 w-auto transition-transform group-hover:scale-105"
+              className="h-8 w-auto transition-default group-hover:scale-105 lg:h-10"
             />
+            <span className="hidden text-sm font-semibold tracking-tight text-foreground sm:inline">
+              EdgeZen Labs
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden items-center rounded-full border border-border/70 bg-card/75 p-1 shadow-sm backdrop-blur md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-all ${
-                  location.pathname === link.path
-                    ? "bg-foreground text-background shadow-md"
-                    : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+          {/* Desktop navigation */}
+          <NavigationMenu className="hidden lg:flex">
+            <NavigationMenuList className="gap-1 rounded-full border border-border/70 bg-card/80 p-1 shadow-token-sm backdrop-blur">
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "rounded-lg bg-transparent text-sm font-medium",
+                    isProductsActive && "bg-foreground text-background hover:bg-foreground hover:text-background",
+                  )}
+                >
+                  Products
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[320px] gap-1 p-3 md:w-[360px]">
+                    {productLinks.map((item) => (
+                      <li key={item.path}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to={item.path}
+                            className="block rounded-lg px-3 py-2.5 text-sm font-medium transition-default hover:bg-accent/10 hover:text-foreground"
+                          >
+                            {item.name}
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
-          <div className="hidden items-center gap-3 md:flex">
+              {primaryNavLinks.map((link) => (
+                <NavigationMenuItem key={link.path}>
+                  <NavigationMenuLink asChild>
+                    <Link to={link.path} className={navLinkClass(isActive(link.path))}>
+                      {link.name}
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Link to="/contact">
-              <Button className="rounded-xl bg-foreground text-background shadow-lg shadow-foreground/10 transition-transform hover:scale-[1.03]">
+            <Link to="/contact" className="hidden sm:inline-flex">
+              <Button className="h-10 rounded-xl bg-foreground px-5 text-background shadow-token-md transition-default hover:scale-[1.02]">
                 Start a Project
-                <ArrowRight className="ml-2" size={16} />
+                <ArrowRight className="ml-2" size={16} aria-hidden />
               </Button>
             </Link>
-          </div>
 
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
-            <button
-              type="button"
-              className="rounded-xl border border-border/70 bg-card/80 p-2 text-foreground shadow-sm backdrop-blur"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={isOpen}
-              aria-controls="mobile-navigation"
-            >
-              {isOpen ? <X size={24} aria-hidden /> : <Menu size={24} aria-hidden />}
-            </button>
+            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-10 w-10 rounded-xl border-border/70 bg-card/80 lg:hidden"
+                  aria-label="Open navigation menu"
+                >
+                  <Menu size={20} aria-hidden />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full max-w-sm overflow-y-auto">
+                <SheetHeader>
+                  <SheetTitle className="text-left">Navigation</SheetTitle>
+                </SheetHeader>
+                <nav className="mt-8 flex flex-col gap-6" aria-label="Mobile navigation">
+                  <div>
+                    <p className="eyebrow mb-3">Products</p>
+                    <ul className="space-y-1">
+                      {productLinks.map((item) => (
+                        <li key={item.path}>
+                          <SheetClose asChild>
+                            <Link
+                              to={item.path}
+                              className={cn(
+                                "block rounded-xl px-4 py-3 text-sm font-medium transition-default",
+                                isActive(item.path) || (item.path === "/products" && isProductsActive)
+                                  ? "bg-foreground text-background"
+                                  : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+                              )}
+                            >
+                              {item.name}
+                            </Link>
+                          </SheetClose>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="eyebrow mb-3">Company</p>
+                    <ul className="space-y-1">
+                      {primaryNavLinks.map((link) => (
+                        <li key={link.path}>
+                          <SheetClose asChild>
+                            <Link
+                              to={link.path}
+                              className={cn(
+                                "block rounded-xl px-4 py-3 text-sm font-medium transition-default",
+                                isActive(link.path)
+                                  ? "bg-foreground text-background"
+                                  : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+                              )}
+                            >
+                              {link.name}
+                            </Link>
+                          </SheetClose>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <SheetClose asChild>
+                    <Link to="/contact">
+                      <Button className="h-12 w-full rounded-xl bg-foreground text-background">
+                        Start a Project
+                        <ArrowRight className="ml-2" size={16} aria-hidden />
+                      </Button>
+                    </Link>
+                  </SheetClose>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div
-          id="mobile-navigation"
-          className="border-t border-border/70 bg-background/95 backdrop-blur-xl md:hidden"
-        >
-          <div className="container mx-auto px-4 py-4 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block rounded-xl px-4 py-3 text-sm font-medium transition-all ${
-                  location.pathname === link.path
-                    ? "bg-foreground text-background"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link to="/contact" onClick={() => setIsOpen(false)}>
-              <Button className="mt-2 w-full rounded-xl bg-foreground text-background">
-                Start a Project
-              </Button>
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
+    </header>
   );
 };
 

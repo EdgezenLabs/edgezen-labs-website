@@ -1398,7 +1398,7 @@ src/
 - [ ] Add `/legal/terms` route
 - [ ] Unify product URL strategy
 - [ ] Move Briktra out of top-level nav
-- [ ] Add footer link to Briktra App
+- [x] Add footer link to Briktra App
 - [ ] Fix hash anchor navigation for products
 - [ ] Add HTML + XML sitemap
 - [ ] Create `content/` data layer
@@ -1407,13 +1407,13 @@ src/
 
 ## 20.2 Navigation & Layout
 
-- [ ] Redesign navbar with grouped items (Company, Work, Products, Contact)
-- [ ] Implement shadcn Sheet for mobile menu
+- [x] Redesign navbar with grouped items (Company, Work, Products, Contact)
+- [x] Implement shadcn Sheet for mobile menu
 - [ ] Add mobile menu focus trap
 - [ ] Lock body scroll when menu open
 - [x] Add skip-to-content link
 - [x] Add theme toggle to navbar
-- [ ] Create PageLayout component
+- [x] Create PageLayout component
 - [ ] Add breadcrumbs on inner pages
 - [ ] Reduce nav items to 5 or fewer top-level
 - [ ] Add wordmark next to logo
@@ -1519,8 +1519,8 @@ src/
 
 ## 20.12 Footer
 
-- [ ] Add Privacy Policy link
-- [ ] Add Terms of Service link
+- [x] Add Privacy Policy link
+- [x] Add Terms of Service link
 - [ ] Add Briktra App link
 - [ ] Add GitHub/social links
 - [ ] Add newsletter signup

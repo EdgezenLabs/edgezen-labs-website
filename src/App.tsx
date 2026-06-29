@@ -15,6 +15,8 @@ import BriktraApp from "./pages/BriktraApp";
 import Technologies from "./pages/Technologies";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/legal/Privacy";
+import Terms from "./pages/legal/Terms";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +52,8 @@ const App = () => (
           <Route path="/briktra-app" element={<BriktraApp />} />
           <Route path="/technologies" element={<Technologies />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/legal/privacy" element={<Privacy />} />
+          <Route path="/legal/terms" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
           </Routes>

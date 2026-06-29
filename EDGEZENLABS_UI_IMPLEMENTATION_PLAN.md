@@ -11,7 +11,7 @@
 | Phase | Focus | Status |
 |-------|--------|--------|
 | 1 | Design System Foundation | ✅ Complete |
-| 2 | Global Layout | ⏳ Pending |
+| 2 | Global Layout | ✅ Complete |
 | 3 | Home Page | ⏳ Pending |
 | 4 | Remaining Pages | ⏳ Pending |
 | 5 | Components | ⏳ Pending |
@@ -76,7 +76,41 @@
 
 ---
 
-## Phase 2 — Global Layout (Next)
+## Phase 2 — Global Layout ✅
+
+**Goal:** Navbar, Footer, PageLayout, mobile nav, breadcrumbs, section headers, global CTA, legal pages.
+
+### Completed
+
+- [x] `PageLayout` component (Navbar + optional Breadcrumbs + PageMain + Footer)
+- [x] `SectionHeader` component
+- [x] `GlobalCTA` component (used in Footer)
+- [x] `Breadcrumbs` component with route labels
+- [x] Navbar redesign: grouped Products dropdown, 4 primary links, wordmark
+- [x] Mobile navigation via shadcn `Sheet` (focus trap via Radix)
+- [x] Footer redesign: legal links, GitHub, GlobalCTA, Briktra in products
+- [x] Centralized navigation data in `src/content/navigation.ts`
+- [x] Legal pages: `/legal/privacy`, `/legal/terms`
+- [x] All pages migrated to `PageLayout`
+
+### Files Changed
+
+- `src/components/Navbar.tsx`
+- `src/components/Footer.tsx`
+- `src/components/layout/*`
+- `src/content/navigation.ts`
+- `src/pages/legal/*`
+- `src/pages/*.tsx`
+- `src/App.tsx`
+
+### Verification
+
+- [x] `npm run build` passes
+- [x] `npm run lint` passes (0 errors)
+
+---
+
+## Phase 3 — Home Page (Next)
 
 - [ ] Redesign Navbar (grouped IA, fewer top-level items)
 - [ ] Redesign Footer (legal links, social, newsletter)
@@ -110,3 +144,4 @@ See `EDGEZENLABS_UI_UX_REVIEW.md` Section 19 (Roadmap) and Section 20 (Checklist
 | Phase | Commit | Date |
 |-------|--------|------|
 | 1 | `feat(design-system): Phase 1 foundation — tokens, dark mode, a11y base` | 2026-06-29 |
+| 2 | `feat(layout): Phase 2 global layout — nav, footer, PageLayout, legal` | 2026-06-29 |

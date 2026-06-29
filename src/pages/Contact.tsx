@@ -4,9 +4,7 @@ import { CheckCircle2, Clock, Mail, MapPin, Phone, Send, Sparkles } from "lucide
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import PageMain from "@/components/PageMain";
+import PageLayout from "@/components/layout/PageLayout";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -94,10 +92,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="site-shell min-h-screen overflow-x-hidden bg-background">
-      <Navbar />
-
-      <PageMain>
+    <PageLayout showBreadcrumbs>
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute inset-0 mesh-grid opacity-30" />
@@ -227,11 +222,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      </PageMain>
-
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import PageMain from "@/components/PageMain";
+import PageLayout from "@/components/layout/PageLayout";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,20 +12,23 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="site-shell flex min-h-screen flex-col bg-background">
-      <PageMain className="flex flex-1 items-center justify-center">
+    <PageLayout>
+      <div className="flex min-h-[60vh] items-center justify-center px-4">
         <div className="text-center">
-          <h1 className="mb-4 text-4xl font-bold">404</h1>
-          <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
+          <p className="eyebrow mb-4">404</p>
+          <h1 className="text-h1 font-bold">Page not found</h1>
+          <p className="mx-auto mt-4 max-w-md text-muted-foreground">
+            The page you are looking for does not exist or may have moved.
+          </p>
           <Link
             to="/"
-            className="inline-flex items-center rounded-xl bg-foreground px-6 py-3 text-sm font-semibold text-background transition-default hover:opacity-90"
+            className="mt-8 inline-flex h-btn-lg items-center rounded-xl bg-foreground px-6 text-sm font-semibold text-background transition-default hover:opacity-90"
           >
             Return to Home
           </Link>
         </div>
-      </PageMain>
-    </div>
+      </div>
+    </PageLayout>
   );
 };
 

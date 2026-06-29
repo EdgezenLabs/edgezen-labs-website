@@ -122,7 +122,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Link to="/contact" className="hidden sm:inline-flex">
-              <Button className="h-10 rounded-xl bg-foreground px-5 text-background shadow-token-md transition-default hover:scale-[1.02]">
+              <Button variant="primary" size="default" className="px-5">
                 Start a Project
                 <ArrowRight className="ml-2" size={16} aria-hidden />
               </Button>
@@ -192,7 +192,7 @@ const Navbar = () => {
 
                   <SheetClose asChild>
                     <Link to="/contact">
-                      <Button className="h-12 w-full rounded-xl bg-foreground text-background">
+                      <Button variant="primary" size="lg" className="w-full">
                         Start a Project
                         <ArrowRight className="ml-2" size={16} aria-hidden />
                       </Button>

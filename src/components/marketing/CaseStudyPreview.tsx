@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BrowserChrome from "@/components/marketing/BrowserChrome";
 import { caseStudy } from "@/content/home";
 import Reveal from "@/components/marketing/Reveal";
 
@@ -12,20 +13,14 @@ const CaseStudyPreview = () => (
         <Reveal>
           <div className="relative">
             <div className={`absolute -inset-4 rounded-3xl bg-gradient-to-br ${caseStudy.accent} blur-2xl`} />
-            <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card p-3 shadow-token-lg">
-              <div className="flex items-center gap-2 border-b border-border/60 px-3 py-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-400" aria-hidden />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" aria-hidden />
-                <span className="h-2.5 w-2.5 rounded-full bg-green-400" aria-hidden />
-                <span className="ml-2 text-xs text-muted-foreground">briktra.com</span>
-              </div>
+            <BrowserChrome url="briktra.com" className="relative shadow-token-lg">
               <img
                 src={caseStudy.image}
                 alt="Briktra mobile app interface"
-                className="w-full rounded-2xl object-cover"
+                className="w-full rounded-b-2xl object-cover"
                 loading="lazy"
               />
-            </div>
+            </BrowserChrome>
           </div>
         </Reveal>
 
@@ -57,7 +52,7 @@ const CaseStudyPreview = () => (
           </ul>
 
           <Link to={caseStudy.href} className="mt-8 inline-block">
-            <Button className="h-btn-lg rounded-xl bg-foreground px-6 text-background">
+            <Button variant="primary" size="lg">
               {caseStudy.cta}
               <ArrowRight className="ml-2" size={16} aria-hidden />
             </Button>

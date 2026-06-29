@@ -1,6 +1,7 @@
-import { ArrowRight, BadgeCheck, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import FeatureListItem from "@/components/marketing/FeatureListItem";
 import Reveal from "@/components/marketing/Reveal";
 import { productDetails, slugifyProduct } from "@/content/products-detail";
 
@@ -76,31 +77,23 @@ const ProductDetailSection = ({ product, index }: ProductDetailSectionProps) => 
 
             <div className="mt-8 grid gap-2 sm:grid-cols-2">
               {product.features.map((feature) => (
-                <div
-                  key={feature}
-                  className="flex items-center gap-2.5 rounded-xl border border-border/70 bg-card p-3.5 shadow-token-xs"
-                >
-                  <BadgeCheck
-                    className={product.color.includes("gradient") ? "text-accent" : product.color}
-                    size={16}
-                    aria-hidden
-                  />
-                  <span className="text-sm text-muted-foreground">{feature}</span>
-                </div>
+                <FeatureListItem key={feature} className="bg-card shadow-token-xs">
+                  {feature}
+                </FeatureListItem>
               ))}
             </div>
 
             <div className="mt-8">
               {product.cta ? (
                 <Link to={product.cta.path}>
-                  <Button className="h-btn-lg rounded-xl bg-foreground px-6 text-background">
+                  <Button variant="primary" size="lg">
                     {product.cta.label}
                     <ChevronRight className="ml-2" size={16} aria-hidden />
                   </Button>
                 </Link>
               ) : (
                 <Link to="/contact">
-                  <Button className="h-btn-lg rounded-xl bg-foreground px-6 text-background">
+                  <Button variant="primary" size="lg">
                     Discuss This Product
                     <ArrowRight className="ml-2" size={16} aria-hidden />
                   </Button>

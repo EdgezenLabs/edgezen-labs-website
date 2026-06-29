@@ -30,10 +30,7 @@ const GlobalCTA = ({
         {description && <p className="mt-4 text-muted-foreground">{description}</p>}
       </div>
       <Link to={ctaHref} className="shrink-0">
-        <Button
-          size="lg"
-          className="h-btn-lg rounded-xl bg-foreground px-8 text-background shadow-token-md transition-default hover:scale-[1.02]"
-        >
+        <Button variant="primary" size="lg">
           {ctaLabel}
           <ArrowRight className="ml-2" size={18} aria-hidden />
         </Button>

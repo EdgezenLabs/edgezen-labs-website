@@ -5,7 +5,10 @@ import PageLayout from "@/components/layout/PageLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageCTA from "@/components/layout/PageCTA";
 import SectionHeader from "@/components/layout/SectionHeader";
+import FeatureListItem from "@/components/marketing/FeatureListItem";
+import MarketingCard from "@/components/marketing/MarketingCard";
 import Reveal from "@/components/marketing/Reveal";
+import ServiceCard from "@/components/marketing/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { processPhases, serviceHighlights, services } from "@/content/services";
 
@@ -28,7 +31,7 @@ const Services = () => (
       align="center"
     >
       <Link to="/contact">
-        <Button className="h-btn-lg rounded-xl bg-foreground px-7 text-background">
+        <Button variant="primary" size="lg">
           Discuss a Project
           <ArrowRight className="ml-2" size={17} aria-hidden />
         </Button>
@@ -40,21 +43,7 @@ const Services = () => (
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service, index) => (
             <Reveal key={service.title} delay={index * 0.05}>
-              <div className="group relative overflow-hidden rounded-2xl border border-border/70 bg-card p-7 shadow-token-sm transition-default hover:-translate-y-1 hover:border-accent/30 hover:shadow-token-lg">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gradient-purple via-gradient-pink to-gradient-blue opacity-70" />
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 text-accent transition-default group-hover:scale-105">
-                  <service.icon size={26} aria-hidden />
-                </div>
-                <h3 className="mb-3 text-xl font-semibold tracking-tight">{service.title}</h3>
-                <p className="mb-6 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {service.tech.map((tech) => (
-                    <span key={tech} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <ServiceCard {...service} />
             </Reveal>
           ))}
         </div>
@@ -77,11 +66,11 @@ const Services = () => (
           <div className="grid gap-4 lg:grid-cols-5">
             {processPhases.map((phase, index) => (
               <Reveal key={phase.title} delay={index * 0.06}>
-                <div className="rounded-2xl border border-border/70 bg-card p-6 shadow-token-sm">
+                <MarketingCard padding="md">
                   <p className="mb-8 text-4xl font-bold gradient-text">{phase.step}</p>
                   <h3 className="mb-3 text-lg font-semibold">{phase.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{phase.description}</p>
-                </div>
+                </MarketingCard>
               </Reveal>
             ))}
           </div>
@@ -94,10 +83,7 @@ const Services = () => (
         <div className="mx-auto grid max-w-wide gap-6 md:grid-cols-3">
           {serviceHighlights.map((item, index) => (
             <Reveal key={item} delay={index * 0.08}>
-              <div className="flex items-center gap-4 rounded-2xl border border-border/70 bg-card p-6 shadow-token-sm">
-                <CheckCircle2 className="text-accent" size={24} aria-hidden />
-                <span className="font-semibold">{item}</span>
-              </div>
+              <FeatureListItem className="p-6 text-base">{item}</FeatureListItem>
             </Reveal>
           ))}
         </div>

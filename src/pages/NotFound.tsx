@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import PageLayout from "@/components/layout/PageLayout";
+import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   const location = useLocation();
@@ -20,12 +21,9 @@ const NotFound = () => {
           <p className="mx-auto mt-4 max-w-md text-muted-foreground">
             The page you are looking for does not exist or may have moved.
           </p>
-          <Link
-            to="/"
-            className="mt-8 inline-flex h-btn-lg items-center rounded-xl bg-foreground px-6 text-sm font-semibold text-background transition-default hover:opacity-90"
-          >
-            Return to Home
-          </Link>
+          <Button variant="primary" size="lg" className="mt-8" asChild>
+            <Link to="/">Return to Home</Link>
+          </Button>
         </div>
       </div>
     </PageLayout>

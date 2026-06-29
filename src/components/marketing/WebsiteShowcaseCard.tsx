@@ -1,7 +1,9 @@
-import { BadgeCheck, ExternalLink, MonitorSmartphone } from "lucide-react";
+import { ExternalLink, MonitorSmartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FeatureListItem from "@/components/marketing/FeatureListItem";
+import MarketingCard from "@/components/marketing/MarketingCard";
 import Reveal from "@/components/marketing/Reveal";
-import type { websiteShowcases } from "@/content/websites";
+import { Badge } from "@/components/ui/badge";import type { websiteShowcases } from "@/content/websites";
 
 type Website = (typeof websiteShowcases)[number];
 
@@ -12,7 +14,7 @@ interface WebsiteShowcaseCardProps {
 
 const WebsiteShowcaseCard = ({ site, index }: WebsiteShowcaseCardProps) => (
   <Reveal delay={index * 0.08}>
-    <article className="group overflow-hidden rounded-3xl border border-border/70 bg-card shadow-token-sm transition-default hover:border-accent/30 hover:shadow-token-lg">
+    <MarketingCard as="article" padding="none" interactive className="group overflow-hidden rounded-3xl">
       <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
         <a
           href={site.href}
@@ -42,29 +44,23 @@ const WebsiteShowcaseCard = ({ site, index }: WebsiteShowcaseCardProps) => (
         <div className="flex flex-col justify-between gap-8 p-7 md:p-10">
           <div>
             <div className="mb-4 flex flex-wrap items-center gap-3">
-              <span className="rounded-full bg-accent/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent">
+              <Badge variant="accent" className="text-[10px] uppercase tracking-wider">
                 {site.industry}
-              </span>
+              </Badge>
               <span className="text-xs text-muted-foreground">Project 0{index + 1}</span>
             </div>
             <h2 className="text-h3 font-bold tracking-tight">{site.name}</h2>
             <p className="mt-4 text-body-lg text-muted-foreground">{site.summary}</p>
             <div className="mt-6 grid gap-2">
               {site.highlights.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 rounded-xl border border-border/70 bg-background p-3.5"
-                >
-                  <BadgeCheck size={16} className="shrink-0 text-accent" aria-hidden />
-                  <span className="text-sm font-medium">{item}</span>
-                </div>
+                <FeatureListItem key={item}>{item}</FeatureListItem>
               ))}
             </div>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <a href={site.href} target="_blank" rel="noopener noreferrer">
-              <Button className="h-btn-lg w-full rounded-xl bg-foreground px-6 text-background sm:w-auto">
+              <Button variant="primary" size="lg" className="w-full sm:w-auto">
                 Visit Website
                 <ExternalLink className="ml-2" size={16} aria-hidden />
               </Button>
@@ -76,7 +72,7 @@ const WebsiteShowcaseCard = ({ site, index }: WebsiteShowcaseCardProps) => (
           </div>
         </div>
       </div>
-    </article>
+    </MarketingCard>
   </Reveal>
 );
 

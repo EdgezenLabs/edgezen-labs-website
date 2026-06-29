@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageCTA from "@/components/layout/PageCTA";
 import SectionHeader from "@/components/layout/SectionHeader";
+import MarketingCard from "@/components/marketing/MarketingCard";
 import Reveal from "@/components/marketing/Reveal";
 import { featuredTech, techStack } from "@/content/technologies";
 
@@ -53,7 +54,7 @@ const Technologies = () => (
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {techStack.map((category, index) => (
             <Reveal key={category.category} delay={index * 0.05}>
-              <div className="group overflow-hidden rounded-2xl border border-border/70 bg-card shadow-token-sm transition-default hover:-translate-y-1 hover:border-accent/30 hover:shadow-token-lg">
+              <MarketingCard padding="none" interactive className="group overflow-hidden">
                 <div className={`bg-gradient-to-br ${category.accent} p-7`}>
                   <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-background/80 text-accent shadow-token-sm backdrop-blur">
                     <category.icon size={26} aria-hidden />
@@ -71,7 +72,7 @@ const Technologies = () => (
                     </div>
                   ))}
                 </div>
-              </div>
+              </MarketingCard>
             </Reveal>
           ))}
         </div>

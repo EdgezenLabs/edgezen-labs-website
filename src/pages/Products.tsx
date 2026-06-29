@@ -91,13 +91,13 @@ const Products = () => {
         }
       >
         <Link to="/contact">
-          <Button className="h-btn-lg rounded-xl bg-foreground px-7 text-background">
-            Build a Product
-            <ArrowRight className="ml-2" size={17} aria-hidden />
-          </Button>
-        </Link>
-        <Link to="/websites">
-          <Button variant="outline" className="h-btn-lg rounded-xl border-accent/30 px-7">
+        <Button variant="primary" size="lg">
+          Build a Product
+          <ArrowRight className="ml-2" size={17} aria-hidden />
+        </Button>
+      </Link>
+      <Link to="/websites">
+        <Button variant="accent-outline" size="lg">
             View Websites
           </Button>
         </Link>

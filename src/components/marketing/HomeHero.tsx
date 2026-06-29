@@ -49,20 +49,13 @@ const HomeHero = () => {
 
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link to="/contact">
-                <Button
-                  size="lg"
-                  className="h-btn-xl w-full rounded-xl bg-foreground px-8 text-base text-background shadow-token-lg transition-default hover:scale-[1.02] sm:w-auto"
-                >
+                <Button variant="primary" size="xl" className="w-full shadow-token-lg sm:w-auto">
                   Start a Project
                   <ArrowRight className="ml-2" size={20} aria-hidden />
                 </Button>
               </Link>
               <Link to="/products">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="h-btn-xl w-full rounded-xl border-accent/30 bg-background/70 px-8 text-base backdrop-blur transition-default hover:border-accent hover:bg-accent/10 sm:w-auto"
-                >
+                <Button variant="accent-outline" size="xl" className="w-full sm:w-auto">
                   See Our Products
                 </Button>
               </Link>

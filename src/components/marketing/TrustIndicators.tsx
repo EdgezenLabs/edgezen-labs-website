@@ -1,8 +1,10 @@
-import { CheckCircle2, Shield, Zap } from "lucide-react";
+import { Zap, Shield, CheckCircle2 } from "lucide-react";
 import { trustPillars, trustStats } from "@/content/home";
+import FeatureListItem from "@/components/marketing/FeatureListItem";
 import Reveal from "@/components/marketing/Reveal";
+import StatCard from "@/components/marketing/StatCard";
 
-const icons = [Zap, Shield, CheckCircle2];
+const statIcons = [Zap, Shield, CheckCircle2];
 
 const TrustIndicators = () => (
   <section className="section-y border-b border-border/50 bg-background">
@@ -18,28 +20,18 @@ const TrustIndicators = () => (
         </Reveal>
 
         <div className="grid gap-4 sm:grid-cols-3">
-          {trustStats.map((stat, index) => {
-            const Icon = icons[index % icons.length];
-            return (
-              <Reveal key={stat.label} delay={index * 0.08}>
-                <div className="rounded-2xl border border-border/70 bg-card p-5 shadow-token-sm transition-default hover:border-accent/30 hover:shadow-token-md">
-                  <Icon className="mb-3 text-accent" size={22} aria-hidden />
-                  <p className="text-2xl font-bold tracking-tight">{stat.value}</p>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">{stat.label}</p>
-                </div>
-              </Reveal>
-            );
-          })}
+          {trustStats.map((stat, index) => (
+            <Reveal key={stat.label} delay={index * 0.08}>
+              <StatCard value={stat.value} label={stat.label} icon={statIcons[index % statIcons.length]} />
+            </Reveal>
+          ))}
         </div>
       </div>
 
       <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {trustPillars.map((pillar, index) => (
           <Reveal key={pillar} delay={index * 0.06}>
-            <div className="flex items-center gap-3 rounded-xl border border-border/70 bg-secondary/30 px-4 py-3">
-              <CheckCircle2 size={18} className="shrink-0 text-accent" aria-hidden />
-              <span className="text-sm font-medium">{pillar}</span>
-            </div>
+            <FeatureListItem className="bg-secondary/30 px-4 py-3">{pillar}</FeatureListItem>
           </Reveal>
         ))}
       </div>

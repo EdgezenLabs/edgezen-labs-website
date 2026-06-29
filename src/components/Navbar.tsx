@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -123,7 +122,6 @@ const Navbar = () => {
           </NavigationMenu>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <Link to="/contact" className="hidden sm:inline-flex">
               <Button variant="primary" size="default" className="px-5">
                 Start a Project

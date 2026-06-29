@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import WebsiteBrowserPreview from "@/components/marketing/WebsiteBrowserPreview";
 import type { homeWebsites } from "@/content/websites";
 
 type Website = (typeof homeWebsites)[number];
@@ -14,23 +15,19 @@ const WebsitePreviewCard = ({ site, index }: WebsitePreviewCardProps) => (
       href={site.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative block overflow-hidden border-b border-border/70"
+      className="relative block overflow-hidden border-b border-border/70 p-4"
       aria-label={`Visit ${site.name} website`}
     >
-      <div className={`relative flex h-48 items-center justify-center bg-gradient-to-br ${site.previewGradient} p-8 md:h-56`}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]" />
-        <div className="relative w-full max-w-[280px] rounded-xl border border-white/20 bg-background/90 p-4 shadow-token-lg backdrop-blur">
-          <div className="mb-3 flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-red-400" aria-hidden />
-            <span className="h-2 w-2 rounded-full bg-yellow-400" aria-hidden />
-            <span className="h-2 w-2 rounded-full bg-green-400" aria-hidden />
-          </div>
-          <p className="text-[10px] uppercase tracking-wider text-muted-foreground">{site.url}</p>
-          <p className="mt-2 text-sm font-semibold leading-snug text-foreground">{site.headline}</p>
-        </div>
-        <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-background/90 text-muted-foreground opacity-0 shadow-token-sm transition-default group-hover:opacity-100">
-          <ExternalLink size={16} aria-hidden />
-        </div>
+      <div className={`absolute inset-0 bg-gradient-to-br ${site.previewGradient} opacity-30`} aria-hidden />
+      <WebsiteBrowserPreview
+        url={site.url}
+        screenshot={site.screenshot}
+        alt={`${site.name} website preview`}
+        className="relative shadow-token-lg"
+        viewportClassName="h-40 sm:h-44 md:h-48"
+      />
+      <div className="absolute bottom-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-background/90 text-muted-foreground opacity-0 shadow-token-sm transition-default group-hover:opacity-100">
+        <ExternalLink size={16} aria-hidden />
       </div>
     </a>
 

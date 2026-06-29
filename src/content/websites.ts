@@ -11,6 +11,7 @@ export const websiteShowcases = [
     highlights: ["Loan service portfolio", "Eligibility-led UX", "Fast contact actions"],
     accent: "from-emerald-500/20 to-blue-500/20",
     previewGradient: "from-emerald-600/30 via-teal-500/20 to-blue-600/30",
+    screenshot: "/website-previews/vs-corporate-lending.png",
   },
   {
     name: "Eladent Consulting",
@@ -24,6 +25,7 @@ export const websiteShowcases = [
     highlights: ["Healthcare positioning", "Lead-ready structure", "Trust-focused design"],
     accent: "from-cyan-500/20 to-violet-500/20",
     previewGradient: "from-cyan-500/30 via-sky-400/20 to-violet-500/30",
+    screenshot: "/website-previews/eladent-consulting.png",
   },
   {
     name: "Gabriel JM Events",
@@ -37,12 +39,13 @@ export const websiteShowcases = [
     highlights: ["Service showcase", "Mobile-first layout", "Inquiry-focused flow"],
     accent: "from-rose-500/20 to-amber-500/20",
     previewGradient: "from-rose-500/30 via-orange-400/20 to-amber-500/30",
+    screenshot: "/website-previews/gabriel-jm-events.png",
   },
 ] as const;
 
 /** Home page card subset */
 export const homeWebsites = websiteShowcases.map(
-  ({ name, url, href, industry, headline, description, accent, previewGradient }) => ({
+  ({ name, url, href, industry, headline, description, accent, previewGradient, screenshot }) => ({
     name,
     url,
     href,
@@ -51,5 +54,6 @@ export const homeWebsites = websiteShowcases.map(
     description,
     accent,
     previewGradient,
+    screenshot,
   }),
 );

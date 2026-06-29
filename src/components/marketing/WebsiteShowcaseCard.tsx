@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import FeatureListItem from "@/components/marketing/FeatureListItem";
 import MarketingCard from "@/components/marketing/MarketingCard";
 import Reveal from "@/components/marketing/Reveal";
-import { Badge } from "@/components/ui/badge";import type { websiteShowcases } from "@/content/websites";
+import WebsiteBrowserPreview from "@/components/marketing/WebsiteBrowserPreview";
+import { Badge } from "@/components/ui/badge";
+import type { websiteShowcases } from "@/content/websites";
 
 type Website = (typeof websiteShowcases)[number];
 
@@ -20,23 +22,19 @@ const WebsiteShowcaseCard = ({ site, index }: WebsiteShowcaseCardProps) => (
           href={site.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative block min-h-[280px] overflow-hidden border-b border-border/70 lg:min-h-[360px] lg:border-b-0 lg:border-r"
+          className="relative block overflow-hidden border-b border-border/70 p-4 md:p-6 lg:min-h-[360px] lg:border-b-0 lg:border-r"
           aria-label={`Visit ${site.name}`}
         >
-          <div className={`absolute inset-0 bg-gradient-to-br ${site.previewGradient}`} />
-          <div className="relative flex h-full items-center justify-center p-8 md:p-12">
-            <div className="w-full max-w-md rounded-2xl border border-white/20 bg-background/95 p-5 shadow-token-xl backdrop-blur">
-              <div className="mb-3 flex items-center gap-2" aria-hidden>
-                <span className="h-2 w-2 rounded-full bg-red-400" />
-                <span className="h-2 w-2 rounded-full bg-yellow-400" />
-                <span className="h-2 w-2 rounded-full bg-green-400" />
-                <span className="ml-2 truncate text-xs text-muted-foreground">{site.url}</span>
-              </div>
-              <p className="text-lg font-semibold leading-snug">{site.headline}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{site.industry}</p>
-            </div>
+          <div className={`absolute inset-0 bg-gradient-to-br ${site.previewGradient} opacity-40`} aria-hidden />
+          <div className="relative">
+            <WebsiteBrowserPreview
+              url={site.url}
+              screenshot={site.screenshot}
+              alt={`${site.name} website preview`}
+              viewportClassName="h-[240px] sm:h-[280px] md:h-[320px] lg:h-[360px]"
+            />
           </div>
-          <div className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-background/90 opacity-0 shadow-token-sm transition-default group-hover:opacity-100">
+          <div className="absolute bottom-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-background/90 opacity-0 shadow-token-sm transition-default group-hover:opacity-100">
             <ExternalLink size={16} aria-hidden />
           </div>
         </a>

@@ -18,8 +18,8 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetClose,
 } from "@/components/ui/sheet";
+import MobileNavMenu from "@/components/layout/MobileNavMenu";
 import { primaryNavLinks, productLinks } from "@/content/navigation";
 import { cn } from "@/lib/utils";
 
@@ -143,62 +143,12 @@ const Navbar = () => {
                 <SheetHeader>
                   <SheetTitle className="text-left">Navigation</SheetTitle>
                 </SheetHeader>
-                <nav className="mt-8 flex flex-col gap-6" aria-label="Mobile navigation">
-                  <div>
-                    <p className="eyebrow mb-3">Products</p>
-                    <ul className="space-y-1">
-                      {productLinks.map((item) => (
-                        <li key={item.path}>
-                          <SheetClose asChild>
-                            <Link
-                              to={item.path}
-                              className={cn(
-                                "block rounded-xl px-4 py-3 text-sm font-medium transition-default",
-                                isActive(item.path) || (item.path === "/products" && isProductsActive)
-                                  ? "bg-foreground text-background"
-                                  : "text-muted-foreground hover:bg-secondary hover:text-foreground",
-                              )}
-                            >
-                              {item.name}
-                            </Link>
-                          </SheetClose>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <p className="eyebrow mb-3">Company</p>
-                    <ul className="space-y-1">
-                      {primaryNavLinks.map((link) => (
-                        <li key={link.path}>
-                          <SheetClose asChild>
-                            <Link
-                              to={link.path}
-                              className={cn(
-                                "block rounded-xl px-4 py-3 text-sm font-medium transition-default",
-                                isActive(link.path)
-                                  ? "bg-foreground text-background"
-                                  : "text-muted-foreground hover:bg-secondary hover:text-foreground",
-                              )}
-                            >
-                              {link.name}
-                            </Link>
-                          </SheetClose>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <SheetClose asChild>
-                    <Link to="/contact">
-                      <Button variant="primary" size="lg" className="w-full">
-                        Start a Project
-                        <ArrowRight className="ml-2" size={16} aria-hidden />
-                      </Button>
-                    </Link>
-                  </SheetClose>
-                </nav>
+                <MobileNavMenu
+                  productLinks={productLinks}
+                  primaryNavLinks={primaryNavLinks}
+                  isActive={isActive}
+                  isProductsActive={isProductsActive}
+                />
               </SheetContent>
             </Sheet>
           </div>

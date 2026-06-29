@@ -393,27 +393,33 @@ const BriktraApp = () => {
       <section className="py-32 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-16 items-center">
-            <div className="lg:col-span-1 space-y-6">
+            <Reveal className="space-y-6">
               <h3 className="text-orange font-bold uppercase tracking-widest text-xs">The Workflow</h3>
-              <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-none">Standardized <br /> <span className="text-muted-foreground font-light">Execution</span></h2>
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-none">
+                Standardized <br /> <span className="text-muted-foreground font-light">Execution</span>
+              </h2>
               <p className="text-lg text-muted-foreground font-light leading-relaxed">
                 Implement professional ERP processes across all your project sites in four simple steps.
               </p>
-            </div>
+            </Reveal>
             <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-              {workflowSteps.map((step) => (
-                <div key={step.id} className="p-10 rounded-[3rem] bg-[hsl(var(--briktra-warm))] border border-orange/5 flex flex-col items-start space-y-6 group hover:border-orange/20 transition-all">
-                  <div className="flex justify-between w-full items-start">
-                    <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center text-orange shadow-sm group-hover:bg-orange group-hover:text-white transition-all">
-                      <step.icon size={24} />
+              {workflowSteps.map((step, index) => (
+                <Reveal key={step.id} delay={index * 0.08}>
+                  <div className="flex h-full flex-col items-start space-y-6 rounded-[3rem] border border-orange/5 bg-[hsl(var(--briktra-warm))] p-10 transition-all group hover:border-orange/20">
+                    <div className="flex w-full items-start justify-between">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-orange shadow-sm transition-all group-hover:bg-orange group-hover:text-white">
+                        <step.icon size={24} />
+                      </div>
+                      <span className="text-4xl font-black text-orange/10 transition-colors group-hover:text-orange/20">
+                        {step.id}
+                      </span>
                     </div>
-                    <span className="text-4xl font-black text-orange/10 group-hover:text-orange/20 transition-colors">{step.id}</span>
+                    <div className="space-y-2">
+                      <h4 className="text-2xl font-bold">{step.title}</h4>
+                      <p className="font-light leading-relaxed text-muted-foreground">{step.description}</p>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <h4 className="text-2xl font-bold">{step.title}</h4>
-                    <p className="text-muted-foreground font-light leading-relaxed">{step.description}</p>
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -423,19 +429,21 @@ const BriktraApp = () => {
       {/* Core Modules Grid */}
       <section id="modules" className="py-32 relative mesh-grid bg-[hsl(var(--briktra-warm))] dark:bg-transparent">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-20 space-y-6">
-            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter">
-              The 12 Core <span className="briktra-gradient-text">Modules</span>
-            </h2>
-            <p className="text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
-              Everything you need to run a construction business in one unified, high-performance ERP platform.
-            </p>
-          </div>
+          <Reveal>
+            <div className="mx-auto mb-20 max-w-4xl space-y-6 text-center">
+              <h2 className="text-5xl font-black italic tracking-tighter md:text-7xl">
+                The 12 Core <span className="briktra-gradient-text">Modules</span>
+              </h2>
+              <p className="mx-auto max-w-2xl text-xl font-light leading-relaxed text-muted-foreground">
+                Everything you need to run a construction business in one unified, high-performance ERP platform.
+              </p>
+            </div>
+          </Reveal>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {modules.map((m) => (
-              <div 
-                key={m.id}
+            {modules.map((m, index) => (
+              <Reveal key={m.id} delay={(index % 4) * 0.05}>
+              <div
                 className={`group p-8 rounded-[2.5rem] border transition-all duration-500 relative overflow-hidden ${
                   hoveredModule === m.id 
                   ? "bg-white dark:bg-zinc-800 border-orange/30 shadow-2xl shadow-orange/10 -translate-y-2" 
@@ -471,6 +479,7 @@ const BriktraApp = () => {
                   </ul>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

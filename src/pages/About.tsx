@@ -7,7 +7,7 @@ import PageCTA from "@/components/layout/PageCTA";
 import SectionHeader from "@/components/layout/SectionHeader";
 import MarketingCard from "@/components/marketing/MarketingCard";
 import Reveal from "@/components/marketing/Reveal";
-import StatCard from "@/components/marketing/StatCard";
+import AnimatedStat from "@/components/motion/AnimatedStat";
 import { Button } from "@/components/ui/button";
 import { aboutPillars, aboutStats, approach, philosophy, values } from "@/content/about";
 
@@ -45,11 +45,15 @@ const About = () => (
               ))}
             </div>
             <div className="mt-6 grid grid-cols-3 gap-3">
-              {aboutStats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl bg-secondary/70 p-4 text-center">
-                  <p className="text-2xl font-bold gradient-text">{stat.value}</p>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground">{stat.label}</p>
-                </div>
+              {aboutStats.map((stat, index) => (
+                <Reveal key={stat.label} delay={index * 0.08}>
+                  <div className="rounded-2xl bg-secondary/70 p-4 text-center">
+                    <p className="text-2xl font-bold gradient-text">
+                      <AnimatedStat value={stat.value} />
+                    </p>
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground">{stat.label}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </MarketingCard>

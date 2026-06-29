@@ -27,7 +27,7 @@ const ProductDetailSection = ({ product, index }: ProductDetailSectionProps) => 
         <div
           className={`mx-auto grid max-w-wide items-center gap-12 lg:grid-cols-2 ${reversed ? "lg:[&>*:first-child]:order-2" : ""}`}
         >
-          <Reveal>
+          <Reveal direction={reversed ? "right" : "left"}>
             <div className="relative">
               <div className={`absolute -inset-4 rounded-3xl bg-gradient-to-br ${product.gradient} blur-2xl`} />
               <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card p-5 shadow-token-md">
@@ -62,7 +62,7 @@ const ProductDetailSection = ({ product, index }: ProductDetailSectionProps) => 
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} direction={reversed ? "left" : "right"}>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/70 bg-card px-4 py-2 shadow-token-sm">
               <product.icon
                 className={product.color.includes("gradient") ? "text-accent" : product.color}
